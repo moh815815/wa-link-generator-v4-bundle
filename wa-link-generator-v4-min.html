@@ -1,0 +1,855 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" data-lang="ar"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>واتساب لينك – حوّل رقمك لرابط فوري</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{ --green:#25D366;--green-d:#128C7E;--green-l:#DCF8C6; --ink:#0D1117;--smoke:#F5F7F0;--muted:#6B7280; --border:#E5E7EB;--white:#FFFFFF;--red:#EF4444; --orange:#F59E0B;--blue:#3B82F6;--purple:#8B5CF6; --r:14px; --bg:var(--smoke);--card-bg:var(--white);--text:var(--ink); --input-bg:var(--white);--shadow:rgba(0,0,0,.06)}[data-theme="dark"]{ --bg:#0f1117;--card-bg:#1a1d27;--text:#e8eaf0;--smoke:#13161f; --border:#2a2e3d;--muted:#8892a4;--white:#1a1d27; --input-bg:#1f2332;--shadow:rgba(0,0,0,.3)}body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;transition:background .25s,color .25s}header{background:var(--card-bg);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 1px 6px var(--shadow)}.logo-bubble{width:34px;height:34px;background:var(--green);border-radius:50%;display:grid;place-items:center;flex-shrink:0}.logo-bubble svg{width:19px;height:19px;fill:#fff}header h1{font-size:1rem;font-weight:900}.header-right{display:flex;align-items:center;gap:8px;margin-right:auto;flex-wrap:wrap}.dark-toggle{border:1.5px solid var(--border);background:var(--card-bg);border-radius:8px;padding:5px 9px;font-size:.78rem;cursor:pointer;color:var(--muted);transition:all .2s}.dark-toggle:hover{border-color:var(--green);color:var(--green-d)}.nav-tabs{display:flex;gap:2px;background:var(--bg);border-radius:10px;padding:3px;overflow-x:auto}.tab-btn{border:none;background:transparent;font-family:'Cairo',sans-serif;font-size:.7rem;font-weight:700;padding:6px 9px;border-radius:7px;cursor:pointer;color:var(--muted);transition:all .2s;white-space:nowrap}.tab-btn.active{background:var(--card-bg);color:var(--text);box-shadow:0 1px 4px var(--shadow)}.panel{display:none;max-width:700px;width:100%;margin:0 auto;padding:20px 14px 70px;flex-direction:column;gap:15px}.panel.active{display:flex}.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 4px var(--shadow)}.card-title{font-size:.9rem;font-weight:900;display:flex;align-items:center;gap:7px;color:var(--text)}label{font-size:.8rem;font-weight:700;display:block;margin-bottom:4px;color:var(--text)}label small{font-weight:400;color:var(--muted)}.phone-row{display:flex;gap:7px}select.cs{flex-shrink:0;width:130px;border:1.5px solid var(--border);border-radius:10px;padding:9px 7px;font-family:'Cairo',sans-serif;font-size:.78rem;background:var(--input-bg);color:var(--text);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 7px center;transition:border-color .2s}select.cs:focus{border-color:var(--green)}select.cs option{background:var(--input-bg)}input.pi{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:9px 11px;font-family:'Cairo',sans-serif;font-size:.92rem;direction:ltr;text-align:right;outline:none;transition:border-color .2s;background:var(--input-bg);color:var(--text)}input.pi:focus{border-color:var(--green)}input.pi.err{border-color:var(--red)}input.pi::placeholder{color:#C0C0C0}input.ni{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:9px 11px;font-family:'Cairo',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;background:var(--input-bg);color:var(--text)}input.ni:focus{border-color:var(--green)}input[type="text"],input[type="number"],input[type="date"]{background:var(--input-bg);color:var(--text)}textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:9px 11px;font-family:'Cairo',sans-serif;font-size:.85rem;resize:vertical;min-height:72px;outline:none;transition:border-color .2s;line-height:1.6;background:var(--input-bg);color:var(--text)}textarea:focus{border-color:var(--green)}.char-count{font-size:.7rem;color:var(--muted);text-align:left;margin-top:2px}.tpl-row{display:flex;flex-wrap:wrap;gap:5px}.tpl-btn{border:1.5px solid var(--border);background:var(--bg);border-radius:20px;padding:4px 11px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--text)}.tpl-btn:hover{border-color:var(--green);background:var(--green-l);color:var(--green-d)}.preview-bubble{background:#DCF8C6;border-radius:12px 12px 0 12px;padding:10px 13px;font-size:.82rem;line-height:1.55;color:#0D1117;max-width:88%;align-self:flex-end;word-break:break-word;position:relative;margin-top:4px}.preview-bubble::after{content:'✓✓';font-size:.6rem;color:#128C7E;position:absolute;left:8px;bottom:4px}.preview-wrap{background:var(--bg);border-radius:9px;padding:10px 13px;border:1px solid var(--border);display:flex;flex-direction:column;gap:4px;min-height:44px}.preview-label{font-size:.7rem;color:var(--muted);font-weight:700}.preview-empty{font-size:.78rem;color:var(--muted);font-style:italic;padding:4px 0}.btn-gen{width:100%;background:var(--green);color:#fff;border:none;border-radius:11px;padding:13px;font-family:'Cairo',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s,transform .1s;box-shadow:0 2px 8px rgba(37,211,102,.35)}.btn-gen:hover{background:var(--green-d)}.btn-gen:active{transform:scale(.98)}.btn-gen:disabled{background:#aaa;box-shadow:none;cursor:not-allowed}.btn-gen svg{width:17px;height:17px;fill:#fff}.result-card{background:var(--card-bg);border:1.5px solid var(--green);border-radius:var(--r);padding:18px;display:none;flex-direction:column;gap:13px;animation:fadeUp .3s ease;box-shadow:0 2px 10px rgba(37,211,102,.15)}.result-card.visible{display:flex}@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes spin{to{transform:rotate(360deg)}}.result-label{font-size:.72rem;font-weight:700;color:var(--green-d);text-transform:uppercase;letter-spacing:.4px}.link-box{display:flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:8px 11px;overflow:hidden}.link-text{flex:1;font-size:.8rem;color:var(--green-d);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:left}.link-type-row{display:flex;gap:6px}.link-type-btn{flex:1;border:1.5px solid var(--border);background:var(--bg);border-radius:9px;padding:7px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;color:var(--muted);transition:all .2s;text-align:center}.link-type-btn.active{border-color:var(--green);background:var(--green-l);color:var(--green-d)}.actions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.btn-act{border:1.5px solid var(--border);background:var(--card-bg);border-radius:9px;padding:8px 5px;font-family:'Cairo',sans-serif;font-size:.68rem;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:all .2s;color:var(--text)}.btn-act svg{width:15px;height:15px}.btn-act:hover{border-color:var(--green);color:var(--green-d)}.btn-act.copied{background:var(--green-l);border-color:var(--green);color:var(--green-d)}.btn-act.pinned{background:#FEF3C7;border-color:var(--orange);color:var(--orange)}.social-row{display:flex;gap:6px;flex-wrap:wrap}.btn-soc{border:none;border-radius:9px;padding:8px 10px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;transition:opacity .2s;color:#fff}.btn-soc:hover{opacity:.82}.btn-soc svg{width:13px;height:13px;fill:#fff}.soc-wa{background:#25D366}.soc-fb{background:#1877F2}.soc-tw{background:#1DA1F2}.soc-tg{background:#2CA5E0}.soc-cp{background:var(--ink)}.btn-open-wa{background:var(--green);color:#fff;border:none;border-radius:11px;padding:11px;font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;transition:background .2s}.btn-open-wa:hover{background:var(--green-d)}.btn-open-wa svg{width:18px;height:18px;fill:#fff}.qr-section{display:flex;flex-direction:column;align-items:center;gap:10px}.qr-label{font-size:.72rem;color:var(--muted);font-weight:600}#qrcode{background:#fff;padding:10px;border-radius:9px;border:1px solid var(--border)}#qrcode canvas,#qrcode img{display:block;border-radius:3px}.qr-themes{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.qr-theme-btn{width:28px;height:28px;border-radius:7px;border:2px solid transparent;cursor:pointer;transition:all .15s}.qr-theme-btn.active{border-color:var(--text);transform:scale(1.15)}.btn-dl-qr{border:1.5px solid var(--border);background:var(--card-bg);border-radius:7px;padding:5px 13px;font-family:'Cairo',sans-serif;font-size:.75rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:5px}.btn-dl-qr:hover{border-color:var(--green);color:var(--green-d)}.btn-dl-qr svg{width:12px;height:12px}.expiry-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.expiry-badge{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:2px 9px;font-size:.7rem;font-weight:700}.expiry-active{background:#FEF3C7;color:#92400E}.expiry-expired{background:#FEE2E2;color:#991B1B}.multi-entry{border:1px solid var(--border);border-radius:11px;padding:14px;display:flex;flex-direction:column;gap:9px;background:var(--card-bg);position:relative;cursor:grab;transition:box-shadow .2s,border-color .2s}.multi-entry.dragging{box-shadow:0 6px 24px var(--shadow);border-color:var(--green);opacity:.85;cursor:grabbing}.multi-entry.drag-over{border-color:var(--green);border-style:dashed}.drag-handle{position:absolute;top:50%;transform:translateY(-50%);right:10px;color:var(--muted);font-size:.9rem;cursor:grab;user-select:none}.remove-btn{position:absolute;top:9px;left:9px;border:none;background:none;cursor:pointer;color:var(--muted);font-size:1rem}.remove-btn:hover{color:var(--red)}.add-entry-btn{border:1.5px dashed var(--border);background:transparent;border-radius:11px;padding:11px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}.add-entry-btn:hover{border-color:var(--green);color:var(--green)}.multi-result{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px;display:flex;flex-direction:column;gap:7px}.multi-link-row{display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid var(--border)}.multi-link-row:last-child{border-bottom:none}.multi-link-name{font-size:.78rem;font-weight:700;min-width:70px;color:var(--text)}.multi-link-url{flex:1;font-size:.75rem;color:var(--green-d);direction:ltr;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini-copy{border:1px solid var(--border);background:var(--card-bg);border-radius:5px;padding:3px 8px;font-family:'Cairo',sans-serif;font-size:.7rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s;flex-shrink:0}.mini-copy:hover{border-color:var(--green);color:var(--green-d)}.copy-all-btn{background:var(--green);color:#fff;border:none;border-radius:9px;padding:10px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:background .2s}.copy-all-btn:hover{background:var(--green-d)}.export-btn{border:1.5px solid var(--border);background:var(--card-bg);border-radius:9px;padding:9px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}.export-btn:hover{border-color:var(--orange);color:var(--orange)}.utm-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.utm-result-box{background:var(--bg);border:1px solid var(--green);border-radius:9px;padding:10px 13px;font-size:.8rem;color:var(--green-d);direction:ltr;text-align:left;word-break:break-all;font-weight:600;min-height:44px}.group-card{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s}.group-card:hover{border-color:var(--green)}.group-header{display:flex;align-items:center;gap:8px}.group-name{font-size:.88rem;font-weight:900;flex:1;color:var(--text)}.group-count{font-size:.72rem;color:var(--muted);background:var(--bg);border-radius:20px;padding:2px 9px}.group-links{display:flex;flex-direction:column;gap:5px}.group-link-row{display:flex;align-items:center;gap:7px}.group-link-name{font-size:.75rem;font-weight:700;min-width:60px;color:var(--text)}.group-link-url{flex:1;font-size:.72rem;color:var(--green-d);direction:ltr;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.group-actions{display:flex;gap:5px;margin-top:4px}.group-btn{border:1px solid var(--border);background:var(--bg);border-radius:6px;padding:3px 9px;font-family:'Cairo',sans-serif;font-size:.7rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s}.group-btn:hover{border-color:var(--green);color:var(--green-d)}.group-btn.del:hover{border-color:var(--red);background:var(--red);color:#fff}.ai-result-box{background:var(--bg);border:1px solid var(--green);border-radius:11px;padding:14px;font-size:.85rem;line-height:1.65;color:var(--text);min-height:60px;white-space:pre-wrap}.ai-result-box.loading{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--muted)}.spinner{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}.ai-tone-row{display:flex;gap:5px;flex-wrap:wrap}.tone-btn{border:1.5px solid var(--border);background:var(--bg);border-radius:20px;padding:4px 11px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--text)}.tone-btn.active{border-color:var(--purple);background:#F3F0FF;color:var(--purple)}.tone-btn:hover{border-color:var(--purple)}.history-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}.hist-actions-bar{display:flex;gap:6px}.clear-btn{border:1px solid var(--border);background:var(--card-bg);border-radius:7px;padding:4px 11px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;color:var(--red);transition:all .2s}.clear-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}.history-list{display:flex;flex-direction:column;gap:9px}.hist-item{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;padding:13px;display:flex;flex-direction:column;gap:7px;transition:border-color .2s}.hist-item:hover{border-color:var(--green)}.hist-item.pinned{border-color:var(--orange);border-width:1.5px}.hist-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.hist-name{font-size:.82rem;font-weight:700;flex:1;color:var(--text)}.hist-date{font-size:.7rem;color:var(--muted)}.pin-icon{font-size:.8rem}.hist-link{font-size:.75rem;color:var(--green-d);word-break:break-all;direction:ltr;text-align:left}.hist-actions{display:flex;gap:5px;flex-wrap:wrap}.hist-btn{border:1px solid var(--border);background:var(--bg);border-radius:6px;padding:3px 9px;font-family:'Cairo',sans-serif;font-size:.7rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s}.hist-btn:hover{border-color:var(--green);color:var(--green-d)}.hist-del:hover{border-color:var(--red)!important;background:var(--red)!important;color:#fff!important}.hist-pin.active{color:var(--orange);border-color:var(--orange)}.sort-row{display:flex;gap:6px;align-items:center}.sort-select{border:1.5px solid var(--border);border-radius:8px;padding:5px 8px;font-family:'Cairo',sans-serif;font-size:.75rem;background:var(--input-bg);color:var(--text);outline:none;cursor:pointer}.sort-select:focus{border-color:var(--green)}.empty-state{text-align:center;padding:36px 20px;color:var(--muted)}.empty-icon{font-size:2.2rem;margin-bottom:7px}.search-row{display:flex;gap:7px;flex-wrap:wrap}.search-input{flex:1;border:1.5px solid var(--border);border-radius:9px;padding:8px 11px;font-family:'Cairo',sans-serif;font-size:.82rem;outline:none;background:var(--input-bg);color:var(--text);transition:border-color .2s;min-width:120px}.search-input:focus{border-color:var(--green)}.pagination{display:flex;gap:5px;justify-content:center;margin-top:4px;flex-wrap:wrap}.page-btn{border:1.5px solid var(--border);background:var(--card-bg);border-radius:7px;padding:4px 11px;font-family:'Cairo',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;color:var(--text);transition:all .2s}.page-btn.active{background:var(--green);border-color:var(--green);color:#fff}.page-btn:hover:not(.active){border-color:var(--green)}.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;padding:14px;text-align:center}.stat-num{font-size:1.9rem;font-weight:900;color:var(--green);line-height:1}.stat-label{font-size:.75rem;color:var(--muted);margin-top:3px}.top-links{display:flex;flex-direction:column;gap:7px}.top-link-row{display:flex;align-items:center;gap:9px;background:var(--card-bg);border:1px solid var(--border);border-radius:9px;padding:9px 12px}.top-link-name{flex:1;font-size:.82rem;font-weight:700;color:var(--text)}.top-link-bar-wrap{flex:2;background:var(--bg);border-radius:20px;height:7px;overflow:hidden}.top-link-bar{height:100%;background:var(--green);border-radius:20px;transition:width .6s ease}.top-link-count{font-size:.78rem;font-weight:700;color:var(--green-d);min-width:26px;text-align:left}.chart-bar-wrap{display:flex;flex-direction:column;gap:6px;margin-top:4px}.chart-bar-row{display:flex;align-items:center;gap:8px}.chart-bar-label{font-size:.72rem;color:var(--muted);width:62px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chart-bar-outer{flex:1;background:var(--bg);border-radius:20px;height:8px;overflow:hidden}.chart-bar-inner{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--green-d),var(--green));transition:width .7s ease}.chart-bar-val{font-size:.72rem;font-weight:700;color:var(--green-d);min-width:20px}.lp-preview{background:#f0fdf4;border:1px solid var(--green);border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}.lp-avatar{width:64px;height:64px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-size:1.8rem}.lp-name{font-size:1.05rem;font-weight:900;color:#0D1117}.lp-bio{font-size:.8rem;color:#555;max-width:260px}.lp-links{display:flex;flex-direction:column;gap:7px;width:100%}.lp-link-item{background:#25D366;color:#fff;border-radius:9px;padding:9px 14px;font-size:.82rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px}.lp-link-item svg{width:14px;height:14px;fill:#fff;flex-shrink:0}.btn-copy-html{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:10px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:6px}.btn-copy-html:hover{background:#333}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(18px);background:var(--ink);color:#fff;padding:8px 18px;border-radius:18px;font-size:.8rem;font-weight:600;opacity:0;transition:all .3s;pointer-events:none;z-index:9999;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}footer{text-align:center;padding:14px;font-size:.72rem;color:var(--muted);border-top:1px solid var(--border);background:var(--card-bg)}.pill{display:inline-block;background:var(--green-l);color:var(--green-d);border-radius:12px;padding:1px 8px;font-size:.65rem;font-weight:700;margin-right:2px}.pill-purple{background:#EDE9FE;color:var(--purple)}.sep{height:1px;background:var(--border);width:100%;opacity:.6}.platform-row{display:flex;gap:6px;flex-wrap:wrap}.platform-btn{flex:1;min-width:72px;border:1.5px solid var(--border);background:var(--bg);border-radius:10px;padding:9px 6px;font-family:'Cairo',sans-serif;font-size:.75rem;font-weight:700;cursor:pointer;color:var(--muted);transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:4px}.platform-btn svg{width:18px;height:18px}.platform-btn.active{border-color:var(--plat-color,var(--green));background:var(--plat-bg,var(--green-l));color:var(--plat-color,var(--green-d))}.plat-wa{--plat-color:#25D366;--plat-bg:#DCF8C6}.plat-tg{--plat-color:#2CA5E0;--plat-bg:#E1F5FE}.plat-ig{--plat-color:#E1306C;--plat-bg:#FCE4EC}.plat-sms{--plat-color:#3B82F6;--plat-bg:#DBEAFE}[data-theme="dark"] .plat-wa{--plat-bg:rgba(37,211,102,.15)}[data-theme="dark"] .plat-tg{--plat-bg:rgba(44,165,224,.15)}[data-theme="dark"] .plat-ig{--plat-bg:rgba(225,48,108,.15)}[data-theme="dark"] .plat-sms{--plat-bg:rgba(59,130,246,.15)}.import-zone{border:1.5px dashed var(--border);border-radius:11px;padding:20px;text-align:center;cursor:pointer;transition:all .2s}.import-zone:hover,.import-zone.drag{border-color:var(--green);background:var(--green-l)}.import-zone input{display:none}.import-preview{max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:9px}.import-table{width:100%;font-size:.74rem;border-collapse:collapse}.import-table th{background:var(--bg);padding:6px 8px;text-align:right;font-weight:700;position:sticky;top:0}.import-table td{padding:5px 8px;border-top:1px solid var(--border)}.import-table input{width:100%;border:1px solid transparent;background:transparent;font-family:'Cairo',sans-serif;font-size:.74rem;color:var(--text);padding:2px 4px;border-radius:4px}.import-table input:focus{border-color:var(--green);background:var(--input-bg);outline:none}.short-link-box{display:flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--purple);border-radius:9px;padding:8px 11px}.short-link-text{flex:1;font-size:.85rem;color:var(--purple);font-weight:700;direction:ltr;text-align:left}.lang-toggle{border:1.5px solid var(--border);background:var(--card-bg);border-radius:8px;padding:5px 9px;font-size:.78rem;cursor:pointer;color:var(--muted);transition:all .2s;font-weight:700}.lang-toggle:hover{border-color:var(--green);color:var(--green-d)}@media(max-width:480px){ .nav-tabs{width:100%;overflow-x:auto} .utm-row,.expiry-row{grid-template-columns:1fr} .actions-grid{grid-template-columns:repeat(4,1fr)} .header-right{gap:5px} .platform-btn{min-width:60px;font-size:.68rem}}</style>
+</head><body><header><div class="logo-bubble"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><h1>واتساب لينك <span class="pill">v4</span></h1><div class="header-right"><button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button><button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙</button><nav class="nav-tabs"><button class="tab-btn active" onclick="switchTab('generator',this)">🔗 <span data-i18n="tab.gen">ولّد</span></button><button class="tab-btn" onclick="switchTab('multi',this)">👥 <span data-i18n="tab.multi">متعدد</span></button><button class="tab-btn" onclick="switchTab('utm',this)">📡 UTM</button><button class="tab-btn" onclick="switchTab('ai',this)">🤖 AI <span class="pill pill-purple" style="margin:0 0 0 2px;" data-i18n="tab.new">جديد</span></button><button class="tab-btn" onclick="switchTab('groups',this)">📁 <span data-i18n="tab.groups">مجموعات</span></button><button class="tab-btn" onclick="switchTab('short',this)">🔗✂️ <span data-i18n="tab.short">روابط مصغّرة</span></button><button class="tab-btn" onclick="switchTab('landing',this)">🌐 <span data-i18n="tab.landing">صفحة</span></button><button class="tab-btn" onclick="switchTab('history',this)">📋 <span data-i18n="tab.history">سجل</span></button><button class="tab-btn" onclick="switchTab('stats',this)">📊 <span data-i18n="tab.stats">إحصاء</span></button></nav></div></header><div class="panel active" id="panel-generator"><div class="card"><div class="card-title"><span>📱</span><span data-i18n="gen.title">بيانات الرابط</span></div><div><label data-i18n="gen.platform">المنصة</label><div class="platform-row" id="platformRow"><button class="platform-btn plat-wa active" data-plat="wa" onclick="setPlatform('wa',this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+ واتساب
+ </button><button class="platform-btn plat-tg" data-plat="tg" onclick="setPlatform('tg',this)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+ تيليجرام
+ </button><button class="platform-btn plat-ig" data-plat="ig" onclick="setPlatform('ig',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+ إنستغرام
+ </button><button class="platform-btn plat-sms" data-plat="sms" onclick="setPlatform('sms',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+ SMS
+ </button></div></div><div><label data-i18n="gen.linkName">اسم الرابط <small data-i18n="gen.linkNameSmall">(للسجل فقط)</small></label><input type="text" class="ni" id="linkName" placeholder="مثال: رقم الشركة، المتجر..." data-i18n-ph="gen.linkNamePh"></div><div id="phoneFieldWrap"><label id="phoneLabel" data-i18n="gen.phone">رقم الواتساب <small data-i18n="gen.phoneSmall">(بدون صفر في الأول)</small></label><div class="phone-row"><select class="cs" id="countryCode"><option value="20">🇪🇬 مصر +20</option><option value="966">🇸🇦 السعودية +966</option><option value="971">🇦🇪 الإمارات +971</option><option value="965">🇰🇼 الكويت +965</option><option value="974">🇶🇦 قطر +974</option><option value="973">🇧🇭 البحرين +973</option><option value="968">🇴🇲 عُمان +968</option><option value="962">🇯🇴 الأردن +962</option><option value="961">🇱🇧 لبنان +961</option><option value="213">🇩🇿 الجزائر +213</option><option value="212">🇲🇦 المغرب +212</option><option value="216">🇹🇳 تونس +216</option><option value="218">🇱🇾 ليبيا +218</option><option value="249">🇸🇩 السودان +249</option><option value="967">🇾🇪 اليمن +967</option><option value="964">🇮🇶 العراق +964</option><option value="963">🇸🇾 سوريا +963</option><option value="970">🇵🇸 فلسطين +970</option><option value="1">🇺🇸 أمريكا +1</option><option value="44">🇬🇧 بريطانيا +44</option><option value="49">🇩🇪 ألمانيا +49</option><option value="33">🇫🇷 فرنسا +33</option><option value="90">🇹🇷 تركيا +90</option></select><input type="tel" class="pi" id="phoneInput" placeholder="1012345678" inputmode="numeric" maxlength="15" oninput="updatePreview()"></div><div id="usernameFieldWrap" style="display:none;"><input type="text" class="ni" id="usernameInput" placeholder="username" style="direction:ltr;text-align:left;" oninput="updatePreview()"></div><div id="phoneErr" style="font-size:.72rem;color:var(--red);margin-top:3px;display:none;" data-i18n="gen.phoneErr">⚠️ الرقم يجب أن يكون أرقاماً فقط (7-13 رقم)</div></div><div id="linkTypeWrap"><label data-i18n="gen.linkType">نوع الرابط</label><div class="link-type-row" id="linkTypeRow"><button class="link-type-btn active" id="lt-wame" onclick="setLinkType('wame',this)">wa.me <small style="display:block;font-size:.65rem;color:inherit;opacity:.7;" data-i18n="gen.lt.popular">الأشهر</small></button><button class="link-type-btn" id="lt-api" onclick="setLinkType('api',this)">api.whatsapp.com <small style="display:block;font-size:.65rem;color:inherit;opacity:.7;" data-i18n="gen.lt.stores">للمتاجر</small></button><button class="link-type-btn" id="lt-intent" onclick="setLinkType('intent',this)">intent:// <small style="display:block;font-size:.65rem;color:inherit;opacity:.7;" data-i18n="gen.lt.android">أندرويد</small></button></div></div><div id="tplWrap"><label data-i18n="gen.templates">قوالب الرسائل الجاهزة</label><div class="tpl-row"><button class="tpl-btn" onclick="setTpl('أهلاً، أنا مهتم بالمنتج. ممكن تبعتلي التفاصيل؟','Hi, I\'m interested in the product. Could you send me details?')">🛍️ <span data-i18n="tpl.product">منتج</span></button><button class="tpl-btn" onclick="setTpl('مرحباً، شفت إعلانك وعايز أعرف أكتر.','Hello, I saw your ad and want to know more.')">📢 <span data-i18n="tpl.ad">إعلان</span></button><button class="tpl-btn" onclick="setTpl('أهلاً، محتاج مساعدة من فضلك.','Hi, I need help please.')">🆘 <span data-i18n="tpl.support">دعم</span></button><button class="tpl-btn" onclick="setTpl('عايز أحجز موعد من فضلك.','I would like to book an appointment please.')">📅 <span data-i18n="tpl.booking">حجز</span></button><button class="tpl-btn" onclick="setTpl('السلام عليكم، عندي استفسار.','Hello, I have an inquiry.')">💬 <span data-i18n="tpl.general">عام</span></button><button class="tpl-btn" onclick="setTpl('أهلاً، أنا مهتم بخدمتك. ممكن تبعتلي السعر؟','Hi, I\'m interested in your service. Could you send me the price?')">💰 <span data-i18n="tpl.price">سعر</span></button><button class="tpl-btn" onclick="setTpl('مبروك! أنا مبسوط أتواصل معاك.','Congrats! Glad to connect with you.')">🎉 <span data-i18n="tpl.welcome">ترحيب</span></button><button class="tpl-btn" onclick="setTpl('شكراً على خدمتك الممتازة! 🌟','Thanks for your excellent service! 🌟')">⭐ <span data-i18n="tpl.thanks">شكر</span></button><button class="tpl-btn" onclick="setTpl('','')">✕ <span data-i18n="tpl.clear">مسح</span></button></div></div><div><label data-i18n="gen.customMsg">رسالة مخصصة <small data-i18n="gen.optional">(اختياري)</small></label><textarea id="msgInput" placeholder="أو اكتب رسالتك هنا..." maxlength="500" oninput="updatePreview()" data-i18n-ph="gen.msgPh"></textarea><div class="char-count"><span id="charCount">0</span>/500</div></div><div><div class="preview-label">👁️ <span data-i18n="gen.previewLabel">معاينة الرسالة</span></div><div class="preview-wrap"><div id="previewMsg" class="preview-empty" data-i18n="gen.previewEmpty">اكتب رسالة لتظهر هنا...</div></div></div><details style="border:1px solid var(--border);border-radius:10px;padding:10px 12px;" id="expiryDetails"><summary style="font-size:.8rem;font-weight:700;cursor:pointer;color:var(--muted);list-style:none;">⏳ <span data-i18n="gen.expiry">انتهاء صلاحية الرابط</span><small style="font-weight:400;" data-i18n="gen.optional">(اختياري)</small></summary><div style="margin-top:10px;display:flex;flex-direction:column;gap:9px;"><div class="expiry-row"><div><label data-i18n="gen.expiryDate">تاريخ الانتهاء</label><input type="date" class="ni" id="expiryDate" style="font-size:.82rem;"></div><div><label data-i18n="gen.expiryClicks">حد النقرات <small data-i18n="gen.expiryClicksSmall">(0 = بلا حد)</small></label><input type="number" class="ni" id="expiryClicks" placeholder="0" min="0" style="font-size:.82rem;"></div></div><p style="font-size:.72rem;color:var(--muted);" data-i18n="gen.expiryNote">سيُعرض تحذير للمستخدم عند فتح الرابط بعد انتهاء صلاحيته. البيانات محلية فقط.</p></div></details><button class="btn-gen" onclick="generate()"><svg viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg><span data-i18n="gen.generateBtn">ولّد الرابط</span></button></div><div class="result-card" id="resultCard"><div class="result-label">✓ <span data-i18n="gen.resultLabel">الرابط جاهز ومحفوظ في السجل</span></div><div id="expiryBadgeWrap"></div><div><label data-i18n="gen.directLink">رابط مباشر</label><div class="link-box"><span class="link-text" id="linkText">—</span></div></div><div class="actions-grid"><button class="btn-act" id="btnCopy" onclick="copyLink()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span data-i18n="act.copy">نسخ</span></button><button class="btn-act" onclick="downloadQR()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="4" height="4"/></svg>
+ QR
+ </button><button class="btn-act" onclick="trackClick()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span data-i18n="act.click">نقرة</span></button><button class="btn-act" id="btnPin" onclick="pinCurrent()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="act.pin">تثبيت</span></button></div><div><label data-i18n="gen.share">مشاركة</label><div class="social-row"><button class="btn-soc soc-wa" onclick="shareOn('whatsapp')"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-i18n="soc.wa">واتساب</span></button><button class="btn-soc soc-fb" onclick="shareOn('facebook')"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span data-i18n="soc.fb">فيسبوك</span></button><button class="btn-soc soc-tg" onclick="shareOn('telegram')"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg><span data-i18n="soc.tg">تيليجرام</span></button><button class="btn-soc soc-cp" onclick="copyLink()"><svg viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg><span data-i18n="act.copy">نسخ</span></button></div></div><a class="btn-open-wa" id="btnOpenWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span id="btnOpenWaText" data-i18n="gen.openDirect">افتح الواتساب مباشرة</span></a><div class="qr-section"><div class="qr-label">QR Code — <span data-i18n="gen.qrTheme">اختر ثيم اللون</span></div><div class="qr-themes" id="qrThemes"></div><div id="qrcode"></div><button class="btn-dl-qr" onclick="downloadQR()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="gen.downloadQR">تحميل QR</span></button></div></div></div><div class="panel" id="panel-multi"><div class="card"><div class="card-title"><span>📤</span><span data-i18n="multi.importTitle">استيراد من CSV / Excel</span></div><p style="font-size:.8rem;color:var(--muted);line-height:1.6;" data-i18n="multi.importDesc">رفع ملف CSV يحتوي على أعمدة: الاسم، رمز الدولة، الرقم، رسالة (اختياري). سيتم إضافة الأرقام تلقائياً كحقول قابلة للتعديل.</p><div class="import-zone" id="importZone" onclick="document.getElementById('csvFile').click()"><input type="file" id="csvFile" accept=".csv,.txt" onchange="handleCSVFile(this.files[0])"><div style="font-size:1.8rem;">📁</div><div style="font-size:.85rem;font-weight:700;margin-top:6px;" data-i18n="multi.importDrop">اضغط أو اسحب ملف CSV هنا</div><div style="font-size:.72rem;color:var(--muted);margin-top:3px;" data-i18n="multi.importFormat">name,code,phone,message</div></div><div id="importPreviewWrap" style="display:none;flex-direction:column;gap:9px;"><div class="import-preview"><table class="import-table" id="importTable"></table></div><div style="display:flex;gap:7px;"><button class="btn-gen" style="flex:1" onclick="confirmImport()" data-i18n="multi.importConfirm">✓ إضافة كل الصفوف</button><button class="export-btn" style="flex:1" onclick="cancelImport()" data-i18n="multi.importCancel">✕ إلغاء</button></div></div><button class="export-btn" onclick="downloadCSVTemplate()">⬇️ <span data-i18n="multi.downloadTemplate">تحميل نموذج CSV</span></button></div><div class="card"><div class="card-title"><span>👥</span><span data-i18n="multi.title">ولّد روابط لأرقام متعددة</span></div><div id="multiEntries" style="display:flex;flex-direction:column;gap:10px;"></div><button class="add-entry-btn" onclick="addEntry()">+ <span data-i18n="multi.addEntry">إضافة رقم جديد</span></button><button class="btn-gen" onclick="generateMulti()"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg><span data-i18n="multi.generateAll">ولّد كل الروابط</span></button></div><div id="multiResult" class="card" style="display:none;"><div class="card-title"><span>✅</span><span data-i18n="multi.ready">الروابط جاهزة</span></div><div class="multi-result" id="multiResultList"></div><div style="display:flex;gap:7px;"><button class="copy-all-btn" style="flex:1" onclick="copyAll()">📋 <span data-i18n="multi.copyAll">نسخ الكل</span></button><button class="export-btn" style="flex:1" onclick="exportMultiCSV()">⬇️ CSV</button><button class="export-btn" style="flex:1;border-color:var(--purple);color:var(--purple);" onclick="saveMultiAsGroup()">📁 <span data-i18n="multi.saveGroup">حفظ مجموعة</span></button></div></div></div><div class="panel" id="panel-utm"><div class="card"><div class="card-title"><span>📡</span><span data-i18n="utm.title">منشئ روابط UTM</span></div><div><label data-i18n="gen.phone">رقم الواتساب</label><div class="phone-row"><select class="cs" id="utmCode"><option value="20">🇪🇬 +20</option><option value="966">🇸🇦 +966</option><option value="971">🇦🇪 +971</option><option value="965">🇰🇼 +965</option><option value="974">🇶🇦 +974</option><option value="1">🇺🇸 +1</option><option value="44">🇬🇧 +44</option></select><input type="tel" class="pi" id="utmPhone" placeholder="1012345678" inputmode="numeric" oninput="buildUtm()"></div></div><div class="utm-row"><div><label>utm_source</label><input type="text" class="ni" id="utmSource" placeholder="facebook, google..." oninput="buildUtm()"></div><div><label>utm_medium</label><input type="text" class="ni" id="utmMedium" placeholder="cpc, social..." oninput="buildUtm()"></div></div><div class="utm-row"><div><label>utm_campaign</label><input type="text" class="ni" id="utmCampaign" placeholder="ramadan_sale..." oninput="buildUtm()"></div><div><label>utm_content</label><input type="text" class="ni" id="utmContent" placeholder="banner_top..." oninput="buildUtm()"></div></div><div><label data-i18n="utm.msg">رسالة الواتساب <small data-i18n="gen.optional">(اختياري)</small></label><textarea id="utmMsg" rows="2" placeholder="رسالة..." oninput="buildUtm()"></textarea></div><div><label data-i18n="utm.result">الرابط الناتج</label><div class="utm-result-box" id="utmResult" data-i18n="utm.resultEmpty">أدخل رقم الهاتف لبناء الرابط...</div></div><div style="display:flex;gap:7px;"><button class="btn-gen" style="flex:1" onclick="copyUtm()" data-i18n="act.copy">نسخ</button><button class="btn-gen" style="flex:1;background:var(--green-d)" onclick="saveUtm()">💾 <span data-i18n="utm.saveHist">حفظ في السجل</span></button></div><div><label data-i18n="utm.quickTpl">قوالب سريعة</label><div class="tpl-row"><button class="tpl-btn" onclick="fillUtm('facebook','social','','')">📘 فيسبوك</button><button class="tpl-btn" onclick="fillUtm('instagram','social','','')">📸 إنستغرام</button><button class="tpl-btn" onclick="fillUtm('google','cpc','','')">🔍 جوجل</button><button class="tpl-btn" onclick="fillUtm('tiktok','video','','')">🎵 تيكتوك</button><button class="tpl-btn" onclick="fillUtm('email','newsletter','','')">📧 <span data-i18n="utm.email">إيميل</span></button><button class="tpl-btn" onclick="fillUtm('whatsapp','chat','','')">💬 واتساب</button></div></div></div></div><div class="panel" id="panel-ai"><div class="card"><div class="card-title"><span>🤖</span><span data-i18n="ai.title">مولّد رسائل بالذكاء الاصطناعي</span><span class="pill pill-purple">Claude</span></div><p style="font-size:.8rem;color:var(--muted);line-height:1.6;" data-i18n="ai.desc">اوصف ما تريده، واخترت نبرة الرسالة، وهيكتب Claude رسالة واتساب احترافية لك في ثوانٍ.</p><div><label data-i18n="ai.apiKey">مفتاح API <small data-i18n="ai.apiKeySmall">(Anthropic — لا يُحفظ في السيرفر)</small></label><input type="text" class="ni" id="aiApiKey" placeholder="sk-ant-..." style="direction:ltr;font-family:monospace;font-size:.78rem;" oninput="saveApiKey()"><div style="font-size:.7rem;color:var(--muted);margin-top:3px;"><span data-i18n="ai.keyNote">المفتاح يُخزَّن في متصفحك فقط</span> · <a href="https://console.anthropic.com/keys" target="_blank" style="color:var(--green-d);" data-i18n="ai.getKey">احصل على مفتاح مجاني</a></div></div><div><label data-i18n="ai.descLabel">صف المنتج / الخدمة / الموقف</label><textarea id="aiDesc" rows="3" placeholder="مثال: أنا صاحب متجر إلكتروني لبيع العطور، وعايز أرسل رسالة لعميل جديد سأل عن سعر عطر محدد..." data-i18n-ph="ai.descPh"></textarea></div><div><label data-i18n="ai.tone">نبرة الرسالة</label><div class="ai-tone-row"><button class="tone-btn active" id="tone-formal" onclick="setTone('formal',this)">🎩 <span data-i18n="ai.tone.formal">رسمي</span></button><button class="tone-btn" id="tone-friendly" onclick="setTone('friendly',this)">😊 <span data-i18n="ai.tone.friendly">ودي</span></button><button class="tone-btn" id="tone-sales" onclick="setTone('sales',this)">💰 <span data-i18n="ai.tone.sales">مبيعات</span></button><button class="tone-btn" id="tone-support" onclick="setTone('support',this)">🆘 <span data-i18n="ai.tone.support">دعم</span></button><button class="tone-btn" id="tone-short" onclick="setTone('short',this)">⚡ <span data-i18n="ai.tone.short">قصير</span></button></div></div><div><label data-i18n="ai.lang">اللغة</label><div class="tpl-row"><button class="tpl-btn" id="lang-ar" onclick="setLang('ar',this)" style="border-color:var(--green);background:var(--green-l);color:var(--green-d);">🇦🇪 <span data-i18n="ai.lang.ar">عربي</span></button><button class="tpl-btn" id="lang-eg" onclick="setLang('eg',this)">🇪🇬 <span data-i18n="ai.lang.eg">مصري</span></button><button class="tpl-btn" id="lang-en" onclick="setLang('en',this)">🇬🇧 English</button></div></div><button class="btn-gen" onclick="generateAI()" id="aiBtnGen"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="17" height="17"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="ai.generateBtn">اكتب الرسالة بالـ AI</span></button><div id="aiResultWrap" style="display:none;flex-direction:column;gap:10px;"><label data-i18n="ai.resultLabel">الرسالة المُولَّدة</label><div class="ai-result-box" id="aiResult"></div><div style="display:flex;gap:7px;flex-wrap:wrap;"><button class="btn-gen" style="flex:1" onclick="copyAiMsg()">📋 <span data-i18n="ai.copyMsg">نسخ الرسالة</span></button><button class="btn-gen" style="flex:1;background:var(--green-d)" onclick="sendAiMsgToGen()">🔗 <span data-i18n="ai.sendToGen">أرسلها للمولّد</span></button><button class="export-btn" style="flex:1" onclick="generateAI()">🔄 <span data-i18n="ai.retry">جرّب مرة ثانية</span></button></div></div></div></div><div class="panel" id="panel-groups"><div class="card"><div class="card-title"><span>📁</span><span data-i18n="groups.title">مجموعات الروابط</span></div><p style="font-size:.8rem;color:var(--muted);" data-i18n="groups.desc">احفظ مجموعة من الروابط معاً وارجع لها في أي وقت.</p><div style="display:flex;gap:7px;"><input type="text" class="ni" id="newGroupName" placeholder="اسم المجموعة..." style="flex:1;" data-i18n-ph="groups.namePh"><button class="btn-gen" style="width:auto;padding:9px 14px;font-size:.82rem;" onclick="createGroup()">+ <span data-i18n="groups.new">جديد</span></button></div><div id="groupsList" style="display:flex;flex-direction:column;gap:10px;margin-top:4px;"></div></div></div><div class="panel" id="panel-landing"><div class="card"><div class="card-title"><span>🌐</span><span data-i18n="lp.title">صفحة هبوط شخصية</span></div><div><label data-i18n="lp.name">الاسم / النشاط</label><input type="text" class="ni" id="lpName" placeholder="أحمد / متجر النور..." oninput="updateLP()" data-i18n-ph="lp.namePh"></div><div><label data-i18n="lp.bio">نبذة قصيرة</label><input type="text" class="ni" id="lpBio" placeholder="خبير تسويق · القاهرة" oninput="updateLP()" data-i18n-ph="lp.bioPh"></div><div style="display:flex;gap:10px;align-items:flex-end;"><div><label data-i18n="lp.emoji">إيموجي</label><input type="text" class="ni" id="lpEmoji" placeholder="👤" maxlength="4" oninput="updateLP()" style="width:72px;font-size:1.2rem;text-align:center;"></div><div style="flex:1;"><label data-i18n="lp.bgColor">لون الخلفية</label><input type="color" id="lpColor" value="#25D366" oninput="updateLP()" style="width:100%;height:40px;border:1.5px solid var(--border);border-radius:9px;cursor:pointer;background:none;"></div></div><div class="sep"></div><div class="card-title" style="font-size:.82rem;" data-i18n="lp.numbers">الأرقام والروابط</div><div id="lpEntries" style="display:flex;flex-direction:column;gap:9px;"></div><button class="add-entry-btn" onclick="addLpEntry()">+ <span data-i18n="lp.addEntry">إضافة رقم / رابط</span></button></div><div class="card"><div class="card-title"><span>👁️</span><span data-i18n="lp.preview">معاينة</span></div><div class="lp-preview" id="lpPreview"><div class="lp-avatar" id="lpAvatar">👤</div><div class="lp-name" id="lpNamePrev" data-i18n="lp.namePlaceholder">اسمك هنا</div><div class="lp-bio" id="lpBioPrev" data-i18n="lp.bioPlaceholder">نبذة قصيرة</div><div class="lp-links" id="lpLinksPrev"></div></div><button class="btn-copy-html" onclick="copyLandingHTML()"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="15" height="15"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span data-i18n="lp.copyHtml">نسخ HTML الصفحة</span></button><button class="export-btn" onclick="downloadLanding()">⬇️ <span data-i18n="lp.downloadHtml">تحميل HTML</span></button></div></div><div class="panel" id="panel-short"><div class="card"><div class="card-title"><span>🔗✂️</span><span data-i18n="short.title">روابط مصغّرة محلية</span></div><p style="font-size:.8rem;color:var(--muted);line-height:1.6;" data-i18n="short.desc">حوّل أي رابط طويل لرابط مصغّر بهاش قصير. ملاحظة: الرابط يعمل فقط على نفس الجهاز/المتصفح لأنه يُخزَّن محلياً بدون سيرفر.</p><div><label data-i18n="short.longLink">الرابط الطويل</label><textarea id="shortInput" rows="2" placeholder="https://wa.me/20xxxxxxxxxx?text=..." style="direction:ltr;text-align:left;font-size:.78rem;" data-i18n-ph="short.longLinkPh"></textarea></div><div><label data-i18n="short.aliasOpt">اسم مخصص <small data-i18n="gen.optional">(اختياري)</small></label><input type="text" class="ni" id="shortAlias" placeholder="my-store" style="direction:ltr;text-align:left;" data-i18n-ph="short.aliasPh"></div><button class="btn-gen" onclick="createShortLink()"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="17" height="17"><path d="M9 17H7A5 5 0 017 7h2m6 10h2a5 5 0 000-10h-2M8 12h8"/></svg><span data-i18n="short.createBtn">ولّد الرابط المصغّر</span></button><div id="shortResultWrap" style="display:none;flex-direction:column;gap:9px;"><label data-i18n="short.resultLabel">الرابط المصغّر</label><div class="short-link-box"><span class="short-link-text" id="shortResultText">—</span></div><div style="display:flex;gap:7px;"><button class="btn-gen" style="flex:1" onclick="copyShortLink()" data-i18n="act.copy">نسخ</button><button class="export-btn" style="flex:1" onclick="testShortLink()" data-i18n="short.test">🔍 اختبار</button></div></div></div><div class="card"><div class="history-header"><div class="card-title"><span>📋</span><span data-i18n="short.listTitle">الروابط المصغّرة المحفوظة</span></div><button class="clear-btn" onclick="clearShortLinks()" data-i18n="hist.clearAll">مسح الكل</button></div><div id="shortList" style="display:flex;flex-direction:column;gap:9px;"></div></div></div><div class="panel" id="panel-history"><div class="card"><div class="history-header"><div class="card-title"><span>📋</span><span data-i18n="hist.title">سجل الروابط</span></div><div class="hist-actions-bar"><button class="export-btn" style="padding:4px 11px;font-size:.72rem;" onclick="exportHistCSV()">⬇️ CSV</button><button class="clear-btn" onclick="clearHistory()" data-i18n="hist.clearAll">مسح الكل</button></div></div><div class="search-row"><input type="text" class="search-input" id="histSearch" placeholder="🔍 ابحث..." oninput="histPage=1;renderHistory()" data-i18n-ph="hist.searchPh"><select class="sort-select" id="histSort" onchange="renderHistory()"><option value="date_desc" data-i18n="hist.sort.newest">⬇️ الأحدث</option><option value="date_asc" data-i18n="hist.sort.oldest">⬆️ الأقدم</option><option value="clicks_desc" data-i18n="hist.sort.clicks">👆 الأكثر نقراً</option><option value="name_asc" data-i18n="hist.sort.name">أ–ي</option></select></div><div class="history-list" id="historyList"></div><div class="pagination" id="histPagination"></div></div></div><div class="panel" id="panel-stats"><div class="card"><div class="card-title"><span>📊</span><span data-i18n="stats.title">إحصائياتك</span></div><div class="stats-grid"><div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-label" data-i18n="stats.total">إجمالي الروابط</div></div><div class="stat-card"><div class="stat-num" id="statClicks">0</div><div class="stat-label" data-i18n="stats.clicks">نقرات مسجّلة</div></div><div class="stat-card"><div class="stat-num" id="statToday">0</div><div class="stat-label" data-i18n="stats.today">روابط اليوم</div></div><div class="stat-card"><div class="stat-num" id="statCountries">0</div><div class="stat-label" data-i18n="stats.countries">دولة مختلفة</div></div></div></div><div class="card"><div class="card-title"><span>🏆</span><span data-i18n="stats.topLinks">أكثر الروابط نقراً</span></div><div class="top-links" id="topLinks"></div></div><div class="card"><div class="card-title"><span>📅</span><span data-i18n="stats.week">نشاط آخر 7 أيام</span></div><div class="chart-bar-wrap" id="weekChart"></div></div><div class="card"><div class="card-title"><span>🌍</span><span data-i18n="stats.countriesDist">توزيع الدول</span></div><div class="chart-bar-wrap" id="countryChart"></div></div><button class="export-btn" onclick="exportHistCSV()">⬇️ <span data-i18n="stats.exportAll">تصدير كل السجل CSV</span></button></div><footer data-i18n="footer.text">واتساب لينك v4 · مجاني بالكامل · لا سيرفر · لا تتبع · بياناتك في متصفحك فقط</footer><div class="toast" id="toast"></div>
+
+<script>const getH=()=>{try{return JSON.parse(localStorage.getItem('wa_h')||'[]')}catch{return[]}};
+const saveH=h=>localStorage.setItem('wa_h',JSON.stringify(h));
+const getG=()=>{try{return JSON.parse(localStorage.getItem('wa_g')||'[]')}catch{return[]}};
+const saveG=g=>localStorage.setItem('wa_g',JSON.stringify(g));
+function toggleDark(){
+const d=document.documentElement;
+const on=d.getAttribute('data-theme')==='dark';
+d.setAttribute('data-theme',on?'':'dark');
+document.getElementById('darkBtn').textContent=on?'🌙':'☀️';
+localStorage.setItem('wa_dark',on?'':'dark');
+}
+(function(){
+const t=localStorage.getItem('wa_dark');
+if(t==='dark'){
+document.documentElement.setAttribute('data-theme','dark');
+document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('darkBtn');if(b)b.textContent='☀️';});
+}
+})();
+const I18N={
+ar:{
+'tab.gen':'ولّد','tab.multi':'متعدد','tab.new':'جديد','tab.groups':'مجموعات','tab.short':'روابط مصغّرة','tab.landing':'صفحة','tab.history':'سجل','tab.stats':'إحصاء',
+'gen.title':'بيانات الرابط','gen.platform':'المنصة',
+'gen.linkName':'اسم الرابط','gen.linkNameSmall':'(للسجل فقط)','gen.linkNamePh':'مثال: رقم الشركة، المتجر...',
+'gen.phone':'رقم الواتساب','gen.phoneSmall':'(بدون صفر في الأول)','gen.phoneSms':'رقم الهاتف',
+'gen.igLabel':'اسم المستخدم على إنستغرام','gen.tgLabel':'اسم المستخدم أو رقم تيليجرام',
+'gen.phoneErr':'⚠️ الرقم يجب أن يكون أرقاماً فقط (7-13 رقم)','gen.phoneErrToast':'ادخل رقم صحيح','gen.usernameErr':'ادخل اسم مستخدم صحيح',
+'gen.linkType':'نوع الرابط','gen.lt.popular':'الأشهر','gen.lt.stores':'للمتاجر','gen.lt.android':'أندرويد',
+'gen.templates':'قوالب الرسائل الجاهزة',
+'gen.customMsg':'رسالة مخصصة','gen.optional':'(اختياري)','gen.msgPh':'أو اكتب رسالتك هنا...',
+'gen.previewLabel':'معاينة الرسالة','gen.previewEmpty':'اكتب رسالة لتظهر هنا...','gen.previewNoMsg':'هذه المنصة لا تدعم رسالة مسبقة — سيتم فتح الملف الشخصي مباشرة.',
+'gen.expiry':'انتهاء صلاحية الرابط','gen.expiryDate':'تاريخ الانتهاء','gen.expiryClicks':'حد النقرات','gen.expiryClicksSmall':'(0 = بلا حد)','gen.expiryNote':'سيُعرض تحذير للمستخدم عند فتح الرابط بعد انتهاء صلاحيته. البيانات محلية فقط.',
+'gen.generateBtn':'ولّد الرابط','gen.resultLabel':'الرابط جاهز ومحفوظ في السجل','gen.directLink':'رابط مباشر','gen.share':'مشاركة',
+'gen.openDirect':'افتح الواتساب مباشرة','gen.openTg':'افتح تيليجرام','gen.openIg':'افتح إنستغرام','gen.openSms':'افتح الرسائل',
+'gen.qrTheme':'اختر ثيم اللون','gen.downloadQR':'تحميل QR','gen.linkDefault':'رابط #','gen.toastDone':'الرابط اتولد وحُفظ!',
+'act.copy':'نسخ','act.click':'نقرة','act.pin':'تثبيت',
+'soc.wa':'واتساب','soc.fb':'فيسبوك','soc.tg':'تيليجرام',
+'tpl.product':'منتج','tpl.ad':'إعلان','tpl.support':'دعم','tpl.booking':'حجز','tpl.general':'عام','tpl.price':'سعر','tpl.welcome':'ترحيب','tpl.thanks':'شكر','tpl.clear':'مسح',
+'multi.importTitle':'استيراد من CSV / Excel','multi.importDesc':'رفع ملف CSV يحتوي على أعمدة: الاسم، رمز الدولة، الرقم، رسالة (اختياري). سيتم إضافة الأرقام تلقائياً كحقول قابلة للتعديل.','multi.importDrop':'اضغط أو اسحب ملف CSV هنا','multi.importFormat':'name,code,phone,message','multi.importConfirm':'✓ إضافة كل الصفوف','multi.importCancel':'✕ إلغاء','multi.downloadTemplate':'تحميل نموذج CSV',
+'multi.title':'ولّد روابط لأرقام متعددة','multi.addEntry':'إضافة رقم جديد','multi.generateAll':'ولّد كل الروابط','multi.ready':'الروابط جاهزة','multi.copyAll':'نسخ الكل','multi.saveGroup':'حفظ مجموعة',
+'multi.entryName':'الاسم','multi.entryPhone':'الرقم','multi.entryMsg':'رسالة',
+'utm.title':'منشئ روابط UTM','utm.msg':'رسالة الواتساب','utm.result':'الرابط الناتج','utm.resultEmpty':'أدخل رقم الهاتف لبناء الرابط...','utm.saveHist':'حفظ في السجل','utm.quickTpl':'قوالب سريعة','utm.email':'إيميل',
+'ai.title':'مولّد رسائل بالذكاء الاصطناعي','ai.desc':'اوصف ما تريده، واخترت نبرة الرسالة، وهيكتب Claude رسالة واتساب احترافية لك في ثوانٍ.',
+'ai.apiKey':'مفتاح API','ai.apiKeySmall':'(Anthropic — لا يُحفظ في السيرفر)','ai.keyNote':'المفتاح يُخزَّن في متصفحك فقط','ai.getKey':'احصل على مفتاح مجاني',
+'ai.descLabel':'صف المنتج / الخدمة / الموقف','ai.descPh':'مثال: أنا صاحب متجر إلكتروني لبيع العطور، وعايز أرسل رسالة لعميل جديد سأل عن سعر عطر محدد...',
+'ai.tone':'نبرة الرسالة','ai.tone.formal':'رسمي','ai.tone.friendly':'ودي','ai.tone.sales':'مبيعات','ai.tone.support':'دعم','ai.tone.short':'قصير',
+'ai.lang':'اللغة','ai.lang.ar':'عربي','ai.lang.eg':'مصري',
+'ai.generateBtn':'اكتب الرسالة بالـ AI','ai.resultLabel':'الرسالة المُولَّدة','ai.copyMsg':'نسخ الرسالة','ai.sendToGen':'أرسلها للمولّد','ai.retry':'جرّب مرة ثانية',
+'groups.title':'مجموعات الروابط','groups.desc':'احفظ مجموعة من الروابط معاً وارجع لها في أي وقت.','groups.namePh':'اسم المجموعة...','groups.new':'جديد','groups.empty':'ما في مجموعات لسه<br>ولّد روابط متعددة واحفظها كمجموعة',
+'groups.copyAll':'نسخ الكل','groups.export':'CSV','groups.delete':'حذف','groups.more':'و {n} أكثر...','groups.confirmDelete':'هتحذف المجموعة؟','groups.deleted':'اتحذفت','groups.created':'مجموعة اتأنشئت!','groups.nameErr':'ادخل اسم المجموعة',
+'lp.title':'صفحة هبوط شخصية','lp.name':'الاسم / النشاط','lp.namePh':'أحمد / متجر النور...','lp.bio':'نبذة قصيرة','lp.bioPh':'خبير تسويق · القاهرة','lp.emoji':'إيموجي','lp.bgColor':'لون الخلفية','lp.numbers':'الأرقام والروابط','lp.addEntry':'إضافة رقم / رابط',
+'lp.preview':'معاينة','lp.namePlaceholder':'اسمك هنا','lp.bioPlaceholder':'نبذة قصيرة','lp.copyHtml':'نسخ HTML الصفحة','lp.downloadHtml':'تحميل HTML','lp.label':'التسمية','lp.labelPh':'رقم المتجر','lp.country':'الدولة','lp.contact':'تواصل','lp.add':'أضف أرقام',
+'short.title':'روابط مصغّرة محلية','short.desc':'حوّل أي رابط طويل لرابط مصغّر بهاش قصير. ملاحظة: الرابط يعمل فقط على نفس الجهاز/المتصفح لأنه يُخزَّن محلياً بدون سيرفر.',
+'short.longLink':'الرابط الطويل','short.longLinkPh':'https://wa.me/20xxxxxxxxxx?text=...','short.aliasOpt':'اسم مخصص','short.aliasPh':'my-store','short.createBtn':'ولّد الرابط المصغّر',
+'short.resultLabel':'الرابط المصغّر','short.test':'🔍 اختبار','short.listTitle':'الروابط المصغّرة المحفوظة',
+'short.empty':'ما في روابط مصغّرة لسه','short.emptyInput':'ادخل رابط أولاً','short.aliasExists':'⚠️ الاسم المخصص مستخدم، جرّب اسم آخر','short.created':'✓ الرابط المصغّر جاهز!','short.notFound':'⚠️ الرابط غير موجود محلياً','short.opening':'بيتم التوجيه...','short.confirmClear':'هتمسح كل الروابط المصغّرة؟','short.clicks':'فتحات',
+'hist.title':'سجل الروابط','hist.clearAll':'مسح الكل','hist.searchPh':'🔍 ابحث...','hist.sort.newest':'⬇️ الأحدث','hist.sort.oldest':'⬆️ الأقدم','hist.sort.clicks':'👆 الأكثر نقراً','hist.sort.name':'أ–ي',
+'hist.empty':'السجل فاضي','hist.noResults':'ما في نتائج','hist.open':'فتح','hist.share':'مشاركة','hist.delete':'حذف','hist.confirmClear':'هتمسح كل السجل؟','hist.cleared':'السجل اتمسح','hist.deleted':'اتحذف','hist.pinned':'اتثبّت','hist.unpinned':'أُزيل التثبيت',
+'stats.title':'إحصائياتك','stats.total':'إجمالي الروابط','stats.clicks':'نقرات مسجّلة','stats.today':'روابط اليوم','stats.countries':'دولة مختلفة','stats.topLinks':'أكثر الروابط نقراً','stats.week':'نشاط آخر 7 أيام','stats.countriesDist':'توزيع الدول','stats.exportAll':'تصدير كل السجل CSV','stats.noStats':'استخدم "نقرة" لتتبع الإحصاء','stats.noData':'ما في بيانات',
+'footer.text':'واتساب لينك v4 · مجاني بالكامل · لا سيرفر · لا تتبع · بياناتك في متصفحك فقط',
+'toast.csvDownloaded':'✓ CSV اتحمّل!','toast.linkFirst':'ولّد الرابط الأول','toast.copied':'✓ اتنسخ!','toast.qrDownloaded':'✓ QR اتحمّل!','toast.allCopied':'✓ كل الروابط اتنسخت!','toast.linksGenerated':'رابط اتولدوا!','toast.missingNumbers':'⚠️ في أرقام ناقصة','toast.addOneNumber':'⚠️ أضف رقم واحد',
+'toast.csvEmpty':'السجل فاضي','toast.linkPinned':'📌 الرابط اتثبّت','toast.linkUnpinned':'📌 أُزيل التثبيت','toast.clickRecorded':'👆 نقرة اتسجلت! الإجمالي:',
+},
+en:{
+'tab.gen':'Create','tab.multi':'Bulk','tab.new':'New','tab.groups':'Groups','tab.short':'Short Links','tab.landing':'Page','tab.history':'History','tab.stats':'Stats',
+'gen.title':'Link Details','gen.platform':'Platform',
+'gen.linkName':'Link Name','gen.linkNameSmall':'(for your records)','gen.linkNamePh':'e.g. Store number, Branch...',
+'gen.phone':'Phone Number','gen.phoneSmall':'(without leading 0)','gen.phoneSms':'Phone Number',
+'gen.igLabel':'Instagram username','gen.tgLabel':'Telegram username or phone',
+'gen.phoneErr':'⚠️ Number must be digits only (7-13 digits)','gen.phoneErrToast':'Enter a valid number','gen.usernameErr':'Enter a valid username',
+'gen.linkType':'Link Type','gen.lt.popular':'Most popular','gen.lt.stores':'For stores','gen.lt.android':'Android',
+'gen.templates':'Quick Message Templates',
+'gen.customMsg':'Custom Message','gen.optional':'(optional)','gen.msgPh':'Or write your message here...',
+'gen.previewLabel':'Message Preview','gen.previewEmpty':'Type a message to preview it here...','gen.previewNoMsg':'This platform doesn\'t support a pre-filled message — the profile will open directly.',
+'gen.expiry':'Link Expiration','gen.expiryDate':'Expiry Date','gen.expiryClicks':'Click Limit','gen.expiryClicksSmall':'(0 = no limit)','gen.expiryNote':'A warning will be shown to users opening an expired link. All data stays local.',
+'gen.generateBtn':'Generate Link','gen.resultLabel':'Link ready & saved to history','gen.directLink':'Direct Link','gen.share':'Share',
+'gen.openDirect':'Open WhatsApp directly','gen.openTg':'Open Telegram','gen.openIg':'Open Instagram','gen.openSms':'Open Messages',
+'gen.qrTheme':'Choose QR color theme','gen.downloadQR':'Download QR','gen.linkDefault':'Link #','gen.toastDone':'Link generated & saved!',
+'act.copy':'Copy','act.click':'Click','act.pin':'Pin',
+'soc.wa':'WhatsApp','soc.fb':'Facebook','soc.tg':'Telegram',
+'tpl.product':'Product','tpl.ad':'Ad','tpl.support':'Support','tpl.booking':'Booking','tpl.general':'General','tpl.price':'Price','tpl.welcome':'Welcome','tpl.thanks':'Thanks','tpl.clear':'Clear',
+'multi.importTitle':'Import from CSV / Excel','multi.importDesc':'Upload a CSV with columns: name, country code, phone, message (optional). Numbers will be added as editable fields automatically.','multi.importDrop':'Click or drop a CSV file here','multi.importFormat':'name,code,phone,message','multi.importConfirm':'✓ Add all rows','multi.importCancel':'✕ Cancel','multi.downloadTemplate':'Download CSV template',
+'multi.title':'Generate Links for Multiple Numbers','multi.addEntry':'Add new number','multi.generateAll':'Generate All Links','multi.ready':'Links Ready','multi.copyAll':'Copy All','multi.saveGroup':'Save as Group',
+'multi.entryName':'Name','multi.entryPhone':'Number','multi.entryMsg':'Message',
+'utm.title':'UTM Link Builder','utm.msg':'WhatsApp Message','utm.result':'Resulting Link','utm.resultEmpty':'Enter a phone number to build the link...','utm.saveHist':'Save to History','utm.quickTpl':'Quick Templates','utm.email':'Email',
+'ai.title':'AI Message Generator','ai.desc':'Describe what you need, pick a tone, and Claude will write a professional WhatsApp message for you in seconds.',
+'ai.apiKey':'API Key','ai.apiKeySmall':'(Anthropic — never stored on a server)','ai.keyNote':'The key is stored in your browser only','ai.getKey':'Get a free key',
+'ai.descLabel':'Describe the product / service / situation','ai.descPh':'e.g. I run an online perfume store, and I want to message a new customer who asked about the price of a specific perfume...',
+'ai.tone':'Message Tone','ai.tone.formal':'Formal','ai.tone.friendly':'Friendly','ai.tone.sales':'Sales','ai.tone.support':'Support','ai.tone.short':'Short',
+'ai.lang':'Language','ai.lang.ar':'Arabic','ai.lang.eg':'Egyptian',
+'ai.generateBtn':'Write with AI','ai.resultLabel':'Generated Message','ai.copyMsg':'Copy Message','ai.sendToGen':'Send to Generator','ai.retry':'Try Again',
+'groups.title':'Link Groups','groups.desc':'Save a group of links together and come back to them anytime.','groups.namePh':'Group name...','groups.new':'New','groups.empty':'No groups yet<br>Generate multiple links and save them as a group',
+'groups.copyAll':'Copy All','groups.export':'CSV','groups.delete':'Delete','groups.more':'and {n} more...','groups.confirmDelete':'Delete this group?','groups.deleted':'Deleted','groups.created':'Group created!','groups.nameErr':'Enter a group name',
+'lp.title':'Personal Landing Page','lp.name':'Name / Business','lp.namePh':'Ahmed / Al-Noor Store...','lp.bio':'Short Bio','lp.bioPh':'Marketing expert · Cairo','lp.emoji':'Emoji','lp.bgColor':'Background Color','lp.numbers':'Numbers & Links','lp.addEntry':'Add number / link',
+'lp.preview':'Preview','lp.namePlaceholder':'Your name here','lp.bioPlaceholder':'Short bio','lp.copyHtml':'Copy Page HTML','lp.downloadHtml':'Download HTML','lp.label':'Label','lp.labelPh':'Store number','lp.country':'Country','lp.contact':'Contact','lp.add':'Add numbers',
+'short.title':'Local Short Links','short.desc':'Turn any long link into a short hash-based link. Note: it only works on the same device/browser since it\'s stored locally with no server.',
+'short.longLink':'Long Link','short.longLinkPh':'https://wa.me/20xxxxxxxxxx?text=...','short.aliasOpt':'Custom Alias','short.aliasPh':'my-store','short.createBtn':'Generate Short Link',
+'short.resultLabel':'Short Link','short.test':'🔍 Test','short.listTitle':'Saved Short Links',
+'short.empty':'No short links yet','short.emptyInput':'Enter a link first','short.aliasExists':'⚠️ Alias already used, try another','short.created':'✓ Short link ready!','short.notFound':'⚠️ Link not found locally','short.opening':'Redirecting...','short.confirmClear':'Delete all short links?','short.clicks':'opens',
+'hist.title':'Link History','hist.clearAll':'Clear All','hist.searchPh':'🔍 Search...','hist.sort.newest':'⬇️ Newest','hist.sort.oldest':'⬆️ Oldest','hist.sort.clicks':'👆 Most Clicked','hist.sort.name':'A-Z',
+'hist.empty':'History is empty','hist.noResults':'No results','hist.open':'Open','hist.share':'Share','hist.delete':'Delete','hist.confirmClear':'Clear all history?','hist.cleared':'History cleared','hist.deleted':'Deleted','hist.pinned':'Pinned','hist.unpinned':'Unpinned',
+'stats.title':'Your Stats','stats.total':'Total Links','stats.clicks':'Recorded Clicks','stats.today':'Links Today','stats.countries':'Different Countries','stats.topLinks':'Most Clicked Links','stats.week':'Last 7 Days Activity','stats.countriesDist':'Country Distribution','stats.exportAll':'Export All History CSV','stats.noStats':'Use "Click" to track stats','stats.noData':'No data yet',
+'footer.text':'WhatsApp Link v4 · 100% Free · No server · No tracking · Your data stays in your browser',
+'toast.csvDownloaded':'✓ CSV downloaded!','toast.linkFirst':'Generate the link first','toast.copied':'✓ Copied!','toast.qrDownloaded':'✓ QR downloaded!','toast.allCopied':'✓ All links copied!','toast.linksGenerated':'links generated!','toast.missingNumbers':'⚠️ Some numbers are missing','toast.addOneNumber':'⚠️ Add at least one number',
+'toast.csvEmpty':'History is empty','toast.linkPinned':'📌 Link pinned','toast.linkUnpinned':'📌 Pin removed','toast.clickRecorded':'👆 Click recorded! Total:',
+}
+};
+let curLang=localStorage.getItem('wa_lang')||'ar';
+function T(key){return (I18N[curLang]&&I18N[curLang][key])||(I18N.ar[key])||'';}
+function applyLang(lang){
+curLang=lang;
+document.documentElement.setAttribute('lang',lang==='en'?'en':'ar');
+document.documentElement.setAttribute('dir',lang==='en'?'ltr':'rtl');
+document.documentElement.setAttribute('data-lang',lang);
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key=el.getAttribute('data-i18n');
+const val=T(key);
+if(val)el.textContent=val;
+});
+document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+const key=el.getAttribute('data-i18n-ph');
+const val=T(key);
+if(val)el.placeholder=val;
+});
+document.getElementById('langBtn').textContent=lang==='en'?'AR':'EN';
+localStorage.setItem('wa_lang',lang);
+if(document.getElementById('panel-history').classList.contains('active'))renderHistory();
+if(document.getElementById('panel-stats').classList.contains('active'))renderStats();
+if(document.getElementById('panel-groups').classList.contains('active'))renderGroups();
+if(document.getElementById('panel-short').classList.contains('active'))renderShortLinks();
+updatePreview();
+}
+function toggleLang(){applyLang(curLang==='ar'?'en':'ar');}
+function switchTab(name,btn){
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById('panel-'+name).classList.add('active');
+btn.classList.add('active');
+if(name==='history'){histPage=1;renderHistory();}
+if(name==='stats')renderStats();
+if(name==='landing')updateLP();
+if(name==='groups')renderGroups();
+if(name==='short')renderShortLinks();
+}
+const clean=n=>n.replace(/[\s\-\(\)\.]/g,'');
+function toast(msg,dur=2400){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),dur);}
+function setTpl(txt,txtEn){
+const ta=document.getElementById('msgInput');
+const v=(curLang==='en'&&txtEn)?txtEn:txt;
+ta.value=v;document.getElementById('charCount').textContent=v.length;updatePreview();
+}
+document.getElementById('msgInput').addEventListener('input',function(){document.getElementById('charCount').textContent=this.value.length;updatePreview();});
+const validatePhone=p=>/^\d{7,13}$/.test(clean(p));
+function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
+let curPlatform='wa';
+function setPlatform(p,btn){
+curPlatform=p;
+document.querySelectorAll('.platform-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const phoneRow=document.querySelector('#phoneFieldWrap .phone-row');
+const usernameWrap=document.getElementById('usernameFieldWrap');
+const linkTypeWrap=document.getElementById('linkTypeWrap');
+const tplWrap=document.getElementById('tplWrap');
+const phoneLabel=document.getElementById('phoneLabel');
+const expiryDetails=document.getElementById('expiryDetails');
+if(p==='ig'||p==='tg'){
+phoneRow.style.display='none';
+usernameWrap.style.display='block';
+linkTypeWrap.style.display='none';
+tplWrap.style.display='none';
+expiryDetails.style.display='block';
+const key=p==='ig'?'gen.igLabel':'gen.tgLabel';
+const fallback=p==='ig'?'اسم المستخدم على إنستغرام':'اسم المستخدم أو رقم تيليجرام';
+phoneLabel.innerHTML='';
+phoneLabel.textContent=T(key)||fallback;
+phoneLabel.setAttribute('data-i18n',key);
+document.getElementById('usernameInput').placeholder=p==='ig'?'username':'username / +201012345678';
+} else if(p==='sms'){
+phoneRow.style.display='flex';
+usernameWrap.style.display='none';
+linkTypeWrap.style.display='none';
+tplWrap.style.display='flex';tplWrap.style.flexDirection='column';
+expiryDetails.style.display='block';
+phoneLabel.innerHTML=`<span data-i18n="gen.phoneSms">رقم الهاتف</span>`;
+} else { // wa
+phoneRow.style.display='flex';
+usernameWrap.style.display='none';
+linkTypeWrap.style.display='block';
+tplWrap.style.display='flex';tplWrap.style.flexDirection='column';
+expiryDetails.style.display='block';
+phoneLabel.innerHTML=`<span data-i18n="gen.phone">${T('gen.phone')||'رقم الواتساب'}</span> <small data-i18n="gen.phoneSmall">${T('gen.phoneSmall')||'(بدون صفر في الأول)'}</small>`;
+}
+applyLang(curLang); // re-translate any new nodes
+updatePreview();
+}
+let curLinkType='wame';
+function setLinkType(t,btn){
+curLinkType=t;
+document.querySelectorAll('.link-type-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+function buildLink(code,phone,msg){
+const p=phone.startsWith('0')?phone.slice(1):phone;
+const full=code+p;
+const enc=msg?encodeURIComponent(msg):'';
+if(curLinkType==='api'){
+return enc?`https://api.whatsapp.com/send?phone=${full}&text=${enc}`:`https://api.whatsapp.com/send?phone=${full}`;
+} else if(curLinkType==='intent'){
+return enc?`intent://send/${full}#Intent;scheme=smsto;package=com.whatsapp;i.message=${enc};end`:`intent://send/${full}#Intent;scheme=smsto;package=com.whatsapp;end`;
+}
+return enc?`https://wa.me/${full}?text=${enc}`:`https://wa.me/${full}`;
+}
+function buildTelegramLink(username){
+username=username.trim().replace(/^@/,'').replace(/^https?:\/\/t\.me\//,'');
+return `https://t.me/${username}`;
+}
+function buildInstagramLink(username){
+username=username.trim().replace(/^@/,'').replace(/^https?:\/\/(www\.)?instagram\.com\//,'').replace(/\/$/,'');
+return `https://instagram.com/${username}`;
+}
+function buildSMSLink(code,phone,msg){
+const p=phone.startsWith('0')?phone.slice(1):phone;
+const full='+'+code+p;
+const enc=msg?encodeURIComponent(msg):'';
+return enc?`sms:${full}?body=${enc}`:`sms:${full}`;
+}
+function buildLinkForPlatform(){
+const msg=document.getElementById('msgInput')?.value.trim()||'';
+if(curPlatform==='ig'){
+return buildInstagramLink(document.getElementById('usernameInput').value||'');
+}
+if(curPlatform==='tg'){
+return buildTelegramLink(document.getElementById('usernameInput').value||'');
+}
+if(curPlatform==='sms'){
+const code=document.getElementById('countryCode').value;
+const phone=clean(document.getElementById('phoneInput').value.trim());
+return buildSMSLink(code,phone,msg);
+}
+const code=document.getElementById('countryCode').value;
+const phone=clean(document.getElementById('phoneInput').value.trim());
+return buildLink(code,phone,msg);
+}
+function updatePreview(){
+const msg=document.getElementById('msgInput')?.value.trim()||'';
+const p=document.getElementById('previewMsg');
+if(curPlatform==='ig'||curPlatform==='tg'){
+p.className='preview-empty';
+p.textContent=T('gen.previewNoMsg')||'هذه المنصة لا تدعم رسالة مسبقة — سيتم فتح الملف الشخصي مباشرة.';
+return;
+}
+if(!msg){p.className='preview-empty';p.textContent=T('gen.previewEmpty')||'اكتب رسالة لتظهر هنا...';return;}
+p.className='preview-bubble';p.textContent=msg;
+}
+const QR_THEMES=[
+{dark:'#0D1117',light:'#FFFFFF',label:'🖤'},
+{dark:'#128C7E',light:'#FFFFFF',label:'🟢'},
+{dark:'#1877F2',light:'#FFFFFF',label:'🔵'},
+{dark:'#8B5CF6',light:'#FFFFFF',label:'🟣'},
+{dark:'#EF4444',light:'#FFFFFF',label:'🔴'},
+{dark:'#F59E0B',light:'#FFFFFF',label:'🟡'},
+{dark:'#FFFFFF',light:'#0D1117',label:'⬜'},
+];
+let curQrTheme=0;
+let curLink='';
+function buildQrThemeButtons(){
+const wrap=document.getElementById('qrThemes');
+wrap.innerHTML=QR_THEMES.map((t,i)=>`<button class="qr-theme-btn${i===0?' active':''}" style="background:${t.dark};border-color:${i===0?'var(--text)':'transparent'};" onclick="selectQrTheme(${i})" title="${t.label}"></button>`).join('');
+}
+function selectQrTheme(i){
+curQrTheme=i;
+document.querySelectorAll('.qr-theme-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+if(curLink)regenQR();
+}
+function regenQR(){
+const qd=document.getElementById('qrcode');qd.innerHTML='';
+const t=QR_THEMES[curQrTheme];
+new QRCode(qd,{text:curLink,width:174,height:174,colorDark:t.dark,colorLight:t.light,correctLevel:QRCode.CorrectLevel.M});
+}
+function generate(){
+const code=document.getElementById('countryCode').value;
+const rawPhone=document.getElementById('phoneInput').value.trim();
+const phone=clean(rawPhone);
+const msg=document.getElementById('msgInput').value.trim();
+const name=document.getElementById('linkName').value.trim()||((T('gen.linkDefault')||'رابط #')+(getH().length+1));
+const expiryDate=document.getElementById('expiryDate').value;
+const expiryClicks=parseInt(document.getElementById('expiryClicks').value)||0;
+const errEl=document.getElementById('phoneErr');
+const inp=document.getElementById('phoneInput');
+if(curPlatform==='ig'||curPlatform==='tg'){
+const uname=document.getElementById('usernameInput').value.trim();
+if(!uname){toast('⚠️ '+(T('gen.usernameErr')||'ادخل اسم مستخدم صحيح'));return;}
+} else {
+if(!phone||!validatePhone(phone)){inp.classList.add('err');errEl.style.display='block';toast('⚠️ '+(T('gen.phoneErrToast')||'ادخل رقم صحيح'));return;}
+inp.classList.remove('err');errEl.style.display='none';
+}
+const link=buildLinkForPlatform();
+curLink=link;
+document.getElementById('linkText').textContent=link;
+const btnOpen=document.getElementById('btnOpenWa');
+btnOpen.href=link;
+const rc=document.getElementById('resultCard');rc.classList.add('visible');
+regenQR();
+const openTextMap={wa:'gen.openDirect',tg:'gen.openTg',ig:'gen.openIg',sms:'gen.openSms'};
+const openFallback={wa:'افتح الواتساب مباشرة',tg:'افتح تيليجرام',ig:'افتح إنستغرام',sms:'افتح الرسائل'};
+document.getElementById('btnOpenWaText').textContent=T(openTextMap[curPlatform])||openFallback[curPlatform];
+const bw=document.getElementById('expiryBadgeWrap');
+if(expiryDate||expiryClicks){
+const expired=expiryDate&&new Date(expiryDate)<new Date();
+const expLabel=expired?('⛔ '+(T('expiry.expired')||'منتهي الصلاحية')):('⏳ '+(T('expiry.expires')||'ينتهي'));
+const clickLabel=T('expiry.clickLabel')||'نقرة';
+bw.innerHTML=`<span class="expiry-badge ${expired?'expiry-expired':'expiry-active'}">${expLabel} ${expiryDate?new Date(expiryDate).toLocaleDateString(curLang==='en'?'en-US':'ar-EG'):''}${expiryClicks?' · '+expiryClicks+' '+clickLabel:''}`;
+} else {bw.innerHTML='';}
+const h=getH();
+if(!h.find(x=>x.link===link)){
+h.unshift({id:Date.now(),name,link,code,platform:curPlatform,date:new Date().toLocaleDateString('ar-EG'),clicks:0,pinned:false,expiryDate,expiryClicks,linkType:curLinkType});
+saveH(h);
+}
+rc.scrollIntoView({behavior:'smooth',block:'nearest'});
+toast('✓ '+(T('gen.toastDone')||'الرابط اتولد وحُفظ!'));
+}
+function copyLink(){
+if(!curLink)return;
+navigator.clipboard.writeText(curLink).then(()=>{
+const b=document.getElementById('btnCopy');b.classList.add('copied');
+toast(T('toast.copied'));
+setTimeout(()=>b.classList.remove('copied'),2000);
+}).catch(()=>{fallbackCopy(curLink);toast(T('toast.copied'));});
+}
+function trackClick(){
+if(!curLink){toast(T('toast.linkFirst'));return;}
+const h=getH();const item=h.find(x=>x.link===curLink);
+if(item){item.clicks=(item.clicks||0)+1;saveH(h);toast(T('toast.clickRecorded')+' '+item.clicks);}
+}
+function pinCurrent(){
+if(!curLink){toast(T('toast.linkFirst'));return;}
+const h=getH();const item=h.find(x=>x.link===curLink);
+if(item){item.pinned=!item.pinned;saveH(h);
+const btn=document.getElementById('btnPin');
+btn.classList.toggle('pinned',item.pinned);
+toast(item.pinned?T('toast.linkPinned'):T('toast.linkUnpinned'));
+}
+}
+function shareOn(p){
+if(!curLink){toast(T('toast.linkFirst'));return;}
+const e=encodeURIComponent(curLink);
+const shareMsg=curLang==='en'?'Contact me: ':'تواصل معي: ';
+const t=encodeURIComponent(shareMsg+curLink);
+const m={whatsapp:`https://wa.me/?text=${t}`,facebook:`https://www.facebook.com/sharer/sharer.php?u=${e}`,twitter:`https://twitter.com/intent/tweet?text=${t}`,telegram:`https://t.me/share/url?url=${e}`};
+if(m[p])window.open(m[p],'_blank');
+}
+function downloadQR(){
+const canvas=document.querySelector('#qrcode canvas');
+if(!canvas){toast('⚠️ '+T('toast.linkFirst'));return;}
+const name=document.getElementById('linkName').value.trim()||'whatsapp';
+const pad=18,textH=26;
+const out=document.createElement('canvas');
+out.width=canvas.width+pad*2;out.height=canvas.height+pad*2+textH;
+const ctx=out.getContext('2d');
+const t=QR_THEMES[curQrTheme];
+ctx.fillStyle=t.light;ctx.fillRect(0,0,out.width,out.height);
+ctx.drawImage(canvas,pad,pad);
+ctx.fillStyle=t.dark;ctx.font='bold 11px Arial';ctx.textAlign='center';
+ctx.fillText('Scan to chat · '+name,out.width/2,out.height-7);
+const a=document.createElement('a');a.download=name+'-qr.png';a.href=out.toDataURL('image/png');a.click();
+toast(T('toast.qrDownloaded'));
+}
+let ec=0;
+const CODES=[{v:'20',l:'🇪🇬 +20'},{v:'966',l:'🇸🇦 +966'},{v:'971',l:'🇦🇪 +971'},{v:'965',l:'🇰🇼 +965'},{v:'974',l:'🇶🇦 +974'},{v:'1',l:'🇺🇸 +1'},{v:'44',l:'🇬🇧 +44'},{v:'49',l:'🇩🇪 +49'}];
+const copts=()=>CODES.map(c=>`<option value="${c.v}">${c.l}</option>`).join('');
+function addEntry(prefill){
+ec++;const id=ec;
+const d=document.createElement('div');d.className='multi-entry';d.id='me-'+id;d.draggable=true;
+const pf=prefill||{};
+d.innerHTML=`<span class="drag-handle">⠿</span>
+<button class="remove-btn" onclick="document.getElementById('me-${id}').remove()">✕</button>
+<div><label data-i18n="multi.entryName">${T('multi.entryName')}</label><input type="text" class="ni" id="mn-${id}" placeholder="${curLang==='en'?'Cairo Branch':'فرع القاهرة'}" style="padding-right:30px;" value="${pf.name||''}"></div>
+<div><label data-i18n="multi.entryPhone">${T('multi.entryPhone')}</label><div class="phone-row"><select class="cs" id="mc-${id}">${copts()}</select><input type="tel" class="pi" id="mp-${id}" placeholder="1012345678" inputmode="numeric" value="${pf.phone||''}"></div></div>
+<div><label data-i18n="multi.entryMsg">${T('multi.entryMsg')} <small data-i18n="gen.optional">${T('gen.optional')}</small></label><textarea id="mm-${id}" rows="2" placeholder="${curLang==='en'?'Custom message...':'رسالة مخصصة...'}">${pf.message||''}</textarea></div>`;
+const cnt=document.getElementById('multiEntries');cnt.appendChild(d);
+if(pf.code){const sel=document.getElementById('mc-'+id);if(sel)sel.value=pf.code;}
+d.addEventListener('dragstart',()=>d.classList.add('dragging'));
+d.addEventListener('dragend',()=>{d.classList.remove('dragging');document.querySelectorAll('.multi-entry').forEach(e=>e.classList.remove('drag-over'));});
+d.addEventListener('dragover',ev=>{ev.preventDefault();d.classList.add('drag-over');});
+d.addEventListener('drop',ev=>{ev.preventDefault();const dr=document.querySelector('.multi-entry.dragging');if(dr&&dr!==d)cnt.insertBefore(dr,d);d.classList.remove('drag-over');});
+}
+function generateMulti(){
+const entries=document.querySelectorAll('.multi-entry');
+if(!entries.length){toast(T('toast.addOneNumber'));return;}
+let html='';const all=[];
+entries.forEach(e=>{
+const id=e.id.replace('me-','');
+const name=document.getElementById('mn-'+id).value.trim()||((curLang==='en'?'Number ':'رقم ')+id);
+const code=document.getElementById('mc-'+id).value;
+const phone=clean(document.getElementById('mp-'+id).value.trim());
+const msg=document.getElementById('mm-'+id).value.trim();
+if(!phone)return;
+const link=buildLink(code,phone,msg);
+all.push({name,link,code});
+html+=`<div class="multi-link-row"><span class="multi-link-name">${name}</span><span class="multi-link-url">${link}</span><button class="mini-copy" onclick="miniCopy('${link}',this)">${T('act.copy')}</button></div>`;
+});
+if(!html){toast(T('toast.missingNumbers'));return;}
+document.getElementById('multiResultList').innerHTML=html;
+const mr=document.getElementById('multiResult');mr.style.display='flex';mr.style.flexDirection='column';mr.style.gap='12px';mr._all=all;
+mr.scrollIntoView({behavior:'smooth',block:'nearest'});
+toast('✓ '+all.length+' '+T('toast.linksGenerated'));
+}
+function miniCopy(link,btn){navigator.clipboard.writeText(link).then(()=>{const orig=btn.textContent;btn.textContent='✓';setTimeout(()=>btn.textContent=T('act.copy'),1500);});}
+function copyAll(){const mr=document.getElementById('multiResult');const text=(mr._all||[]).map(x=>`${x.name}: ${x.link}`).join('\n');navigator.clipboard.writeText(text).then(()=>toast(T('toast.allCopied')));}
+function exportMultiCSV(){const mr=document.getElementById('multiResult');const all=mr._all||[];if(!all.length){toast(T('toast.linkFirst'));return;}const hdr=curLang==='en'?'Name,Link':'الاسم,الرابط';dlCSV(hdr+'\n'+all.map(x=>`"${x.name}","${x.link}"`).join('\n'),'wa-multi.csv');toast(T('toast.csvDownloaded'));}
+function saveMultiAsGroup(){
+const mr=document.getElementById('multiResult');
+const all=mr._all||[];
+if(!all.length){toast(T('toast.linkFirst'));return;}
+const promptLabel=curLang==='en'?'Group name:':'اسم المجموعة:';
+const defaultName=(curLang==='en'?'Group ':'مجموعة ')+new Date().toLocaleDateString(curLang==='en'?'en-US':'ar-EG');
+const name=prompt(promptLabel,defaultName);
+if(!name)return;
+const g=getG();
+g.unshift({id:Date.now(),name,links:all,date:new Date().toLocaleDateString('ar-EG')});
+saveG(g);
+toast(T('groups.created'));
+}
+let importedRows=[];
+const COUNTRY_DIAL_MAP={'971':'971','966':'966','20':'20','965':'965','974':'974','973':'973','968':'968','962':'962','961':'961','213':'213','212':'212','216':'216','218':'218','249':'249','967':'967','964':'964','963':'963','970':'970','1':'1','44':'44','49':'49','33':'33','90':'90'};
+document.getElementById('importZone').addEventListener('dragover',ev=>{ev.preventDefault();document.getElementById('importZone').classList.add('drag');});
+document.getElementById('importZone').addEventListener('dragleave',()=>document.getElementById('importZone').classList.remove('drag'));
+document.getElementById('importZone').addEventListener('drop',ev=>{
+ev.preventDefault();document.getElementById('importZone').classList.remove('drag');
+if(ev.dataTransfer.files.length)handleCSVFile(ev.dataTransfer.files[0]);
+});
+function handleCSVFile(file){
+if(!file)return;
+const reader=new FileReader();
+reader.onload=e=>parseCSV(e.target.result);
+reader.readAsText(file,'UTF-8');
+}
+function parseCSV(text){
+text=text.replace(/^\uFEFF/,'');
+const lines=text.split(/\r?\n/).filter(l=>l.trim().length);
+if(!lines.length)return;
+const delim=lines[0].includes('\t')?'\t':(lines[0].includes(';')?';':',');
+const parseLine=line=>{
+const out=[];let cur='';let inQ=false;
+for(let i=0;i<line.length;i++){
+const c=line[i];
+if(c==='"'){inQ=!inQ;continue;}
+if(c===delim&&!inQ){out.push(cur);cur='';continue;}
+cur+=c;
+}
+out.push(cur);
+return out.map(s=>s.trim());
+};
+let rows=lines.map(parseLine);
+const headerCandidates=['name','الاسم','phone','الرقم','رقم','code','رمز','message','رسالة'];
+const firstRowLower=rows[0].map(c=>c.toLowerCase());
+const hasHeader=firstRowLower.some(c=>headerCandidates.includes(c));
+let colMap={name:0,code:1,phone:2,message:3};
+if(hasHeader){
+firstRowLower.forEach((c,i)=>{
+if(['name','الاسم'].includes(c))colMap.name=i;
+else if(['code','رمز','رمز الدولة'].includes(c))colMap.code=i;
+else if(['phone','الرقم','رقم','الهاتف'].includes(c))colMap.phone=i;
+else if(['message','رسالة'].includes(c))colMap.message=i;
+});
+rows=rows.slice(1);
+}
+importedRows=rows.map(r=>({
+name:r[colMap.name]||'',
+code:(r[colMap.code]||'20').replace(/[^0-9]/g,'')||'20',
+phone:clean(r[colMap.phone]||''),
+message:r[colMap.message]||''
+})).filter(r=>r.phone);
+renderImportPreview();
+}
+function renderImportPreview(){
+const wrap=document.getElementById('importPreviewWrap');
+if(!importedRows.length){wrap.style.display='none';return;}
+wrap.style.display='flex';wrap.style.flexDirection='column';
+const labels=curLang==='en'
+?{name:'Name',code:'Code',phone:'Phone',msg:'Message'}
+:{name:'الاسم',code:'الكود',phone:'الرقم',msg:'رسالة'};
+let html=`<thead><tr><th>${labels.name}</th><th>${labels.code}</th><th>${labels.phone}</th><th>${labels.msg}</th></tr></thead><tbody>`;
+importedRows.forEach((r,i)=>{
+html+=`<tr>
+<td><input value="${r.name.replace(/"/g,'&quot;')}" onchange="importedRows[${i}].name=this.value"></td>
+<td><input value="${r.code}" style="width:50px" onchange="importedRows[${i}].code=this.value.replace(/[^0-9]/g,'')"></td>
+<td><input value="${r.phone}" style="direction:ltr" onchange="importedRows[${i}].phone=this.value.replace(/[^0-9]/g,'')"></td>
+<td><input value="${r.message.replace(/"/g,'&quot;')}" onchange="importedRows[${i}].message=this.value"></td>
+</tr>`;
+});
+html+='</tbody>';
+document.getElementById('importTable').innerHTML=html;
+}
+function confirmImport(){
+if(!importedRows.length)return;
+importedRows.forEach(r=>addEntry({name:r.name,code:r.code,phone:r.phone,message:r.message}));
+toast('✓ '+importedRows.length+' '+(curLang==='en'?'rows added':'صف اتضاف'));
+cancelImport();
+switchTab('multi',document.querySelector('.tab-btn[onclick*="multi"]'));
+}
+function cancelImport(){
+importedRows=[];
+document.getElementById('importPreviewWrap').style.display='none';
+document.getElementById('csvFile').value='';
+}
+function downloadCSVTemplate(){
+const csv=curLang==='en'
+?'name,code,phone,message\nCairo Branch,20,1012345678,Hello! How can I help you?\nRiyadh Branch,966,512345678,Welcome to our store'
+:'name,code,phone,message\nفرع القاهرة,20,1012345678,أهلاً! كيف أقدر أساعدك؟\nفرع الرياض,966,512345678,أهلاً بيك في متجرنا';
+dlCSV(csv,'wa-import-template.csv');
+toast(T('toast.csvDownloaded'));
+}
+let utmLink='';
+function buildUtm(){
+const code=document.getElementById('utmCode').value;
+const phone=clean(document.getElementById('utmPhone').value.trim());
+if(!phone){document.getElementById('utmResult').textContent=T('utm.resultEmpty');utmLink='';return;}
+let base=buildLink(code,phone,document.getElementById('utmMsg').value.trim());
+const src=document.getElementById('utmSource').value.trim();
+const med=document.getElementById('utmMedium').value.trim();
+const cam=document.getElementById('utmCampaign').value.trim();
+const con=document.getElementById('utmContent').value.trim();
+const params=[];
+if(src)params.push('utm_source='+encodeURIComponent(src));
+if(med)params.push('utm_medium='+encodeURIComponent(med));
+if(cam)params.push('utm_campaign='+encodeURIComponent(cam));
+if(con)params.push('utm_content='+encodeURIComponent(con));
+if(params.length){const sep=base.includes('?')?'&':'?';base+=sep+params.join('&');}
+utmLink=base;document.getElementById('utmResult').textContent=base;
+}
+function copyUtm(){if(!utmLink){toast(curLang==='en'?'Build the link first':'ابني الرابط أول');return;}navigator.clipboard.writeText(utmLink).then(()=>toast(curLang==='en'?'✓ UTM link copied!':'✓ UTM اتنسخ!'));}
+function saveUtm(){
+if(!utmLink){toast(curLang==='en'?'Build the link first':'ابني الرابط أول');return;}
+const src=document.getElementById('utmSource').value.trim();
+const h=getH();
+const unknownLabel=curLang==='en'?'Unknown':'مجهول';
+h.unshift({id:Date.now(),name:'UTM – '+(src||unknownLabel),link:utmLink,code:document.getElementById('utmCode').value,date:new Date().toLocaleDateString('ar-EG'),clicks:0,pinned:false});
+saveH(h);toast(curLang==='en'?'✓ Saved to history!':'✓ اتحفظ في السجل!');
+}
+function fillUtm(src,med,cam,con){
+document.getElementById('utmSource').value=src;document.getElementById('utmMedium').value=med;
+document.getElementById('utmCampaign').value=cam||'';document.getElementById('utmContent').value=con||'';
+buildUtm();
+}
+let aiTone='formal';let aiLang='ar';
+function setTone(t,btn){aiTone=t;document.querySelectorAll('.tone-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function setLang(l,btn){aiLang=l;document.querySelectorAll('#panel-ai .tpl-btn').forEach(b=>{b.style.borderColor='';b.style.background='';b.style.color='';});btn.style.borderColor='var(--green)';btn.style.background='var(--green-l)';btn.style.color='var(--green-d)';}
+function saveApiKey(){localStorage.setItem('wa_aik',document.getElementById('aiApiKey').value);}
+const TONE_MAP={formal:'رسمي ومهني',friendly:'ودي وحميم',sales:'مقنع ومحفّز للشراء',support:'متفهم ومساعد',short:'قصير جداً (جملة واحدة أو اثنتان)'};
+const LANG_MAP={ar:'عربي فصيح',eg:'عربي مصري عامي',en:'English'};
+async function generateAI(){
+const key=document.getElementById('aiApiKey').value.trim()||localStorage.getItem('wa_aik')||'';
+if(!key){toast('⚠️ '+(curLang==='en'?'Enter your API key first':'أدخل مفتاح API أولاً'));document.getElementById('aiApiKey').focus();return;}
+const desc=document.getElementById('aiDesc').value.trim();
+if(!desc){toast('⚠️ '+(curLang==='en'?'Describe the product or situation':'اوصف المنتج أو الموقف'));return;}
+const btn=document.getElementById('aiBtnGen');
+const writingLabel=curLang==='en'?'Writing...':'يكتب...';
+const claudeWritingLabel=curLang==='en'?'Claude is writing the message...':'Claude يكتب الرسالة...';
+btn.disabled=true;btn.innerHTML=`<div class="spinner"></div> ${writingLabel}`;
+const rw=document.getElementById('aiResultWrap');rw.style.display='flex';
+const rb=document.getElementById('aiResult');rb.className='ai-result-box loading';
+rb.innerHTML=`<div class="spinner"></div> ${claudeWritingLabel}`;
+const prompt=`اكتب رسالة واتساب احترافية باللغة ${LANG_MAP[aiLang]} بأسلوب ${TONE_MAP[aiTone]}.\n\nالموقف/المنتج:\n${desc}\n\nالرسالة يجب أن:\n- تبدأ مباشرة بالتحية المناسبة\n- تكون طبيعية وغير رسمية جداً ما لم يُطلب ذلك\n- لا تحتوي على قوسين أو شرح\n- فقط نص الرسالة، بدون أي مقدمة أو ملاحظات إضافية`;
+try{
+const res=await fetch('https://api.anthropic.com/v1/messages',{
+method:'POST',
+headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01'},
+body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,messages:[{role:'user',content:prompt}]})
+});
+const data=await res.json();
+if(data.error){rb.className='ai-result-box';rb.textContent=(curLang==='en'?'Error: ':'خطأ: ')+data.error.message;return;}
+const text=data.content?.[0]?.text||'';
+rb.className='ai-result-box';rb.textContent=text;
+}catch(e){
+rb.className='ai-result-box';rb.textContent=curLang==='en'?'Connection error. Check your key and internet.':'خطأ في الاتصال. تأكد من المفتاح والإنترنت.';
+}finally{
+btn.disabled=false;
+btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="17" height="17"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> '+T('ai.retry');
+}
+}
+function copyAiMsg(){const t=document.getElementById('aiResult').textContent;if(!t)return;navigator.clipboard.writeText(t).then(()=>toast(curLang==='en'?'✓ Message copied!':'✓ الرسالة اتنسخت!'));}
+function sendAiMsgToGen(){
+const t=document.getElementById('aiResult').textContent;if(!t)return;
+document.getElementById('msgInput').value=t;
+document.getElementById('charCount').textContent=t.length;
+updatePreview();
+switchTab('generator',document.querySelectorAll('.tab-btn')[0]);
+toast(curLang==='en'?'✓ Message sent to generator!':'✓ الرسالة اتبعثت للمولّد!');
+}
+function createGroup(){
+const name=document.getElementById('newGroupName').value.trim();
+if(!name){toast('⚠️ '+T('groups.nameErr'));return;}
+const g=getG();
+g.unshift({id:Date.now(),name,links:[],date:new Date().toLocaleDateString('ar-EG')});
+saveG(g);document.getElementById('newGroupName').value='';
+renderGroups();toast(T('groups.created'));
+}
+function renderGroups(){
+const g=getG();
+const el=document.getElementById('groupsList');
+if(!g.length){el.innerHTML=`<div class="empty-state"><div class="empty-icon">📁</div><p>${T('groups.empty')}</p></div>`;return;}
+const linkWord=curLang==='en'?'links':'رابط';
+el.innerHTML=g.map(grp=>`<div class="group-card">
+<div class="group-header">
+<span class="group-name">📁 ${grp.name}</span>
+<span class="group-count">${grp.links.length} ${linkWord}</span>
+<span class="hist-date">${grp.date}</span>
+</div>
+<div class="group-links">${grp.links.slice(0,3).map(l=>`<div class="group-link-row"><span class="group-link-name">${l.name}</span><span class="group-link-url">${l.link}</span><button class="mini-copy" onclick="miniCopy('${l.link}',this)">${T('act.copy')}</button></div>`).join('')}${grp.links.length>3?`<div style="font-size:.72rem;color:var(--muted);padding:3px 0;">${T('groups.more').replace('{n}',grp.links.length-3)}</div>`:''}</div>
+<div class="group-actions">
+<button class="group-btn" onclick="copyGroupAll(${grp.id})">📋 ${T('groups.copyAll')}</button>
+<button class="group-btn" onclick="exportGroupCSV(${grp.id})">⬇️ ${T('groups.export')}</button>
+<button class="group-btn del" onclick="deleteGroup(${grp.id})">🗑️ ${T('groups.delete')}</button>
+</div>
+</div>`).join('');
+}
+function copyGroupAll(id){
+const g=getG();const grp=g.find(x=>x.id===id);if(!grp)return;
+const text=grp.links.map(l=>`${l.name}: ${l.link}`).join('\n');
+navigator.clipboard.writeText(text).then(()=>toast(T('toast.allCopied')));
+}
+function exportGroupCSV(id){
+const g=getG();const grp=g.find(x=>x.id===id);if(!grp)return;
+const hdr=curLang==='en'?'Name,Link':'الاسم,الرابط';
+dlCSV(hdr+'\n'+grp.links.map(l=>`"${l.name}","${l.link}"`).join('\n'),grp.name+'.csv');
+toast(T('toast.csvDownloaded'));
+}
+function deleteGroup(id){
+if(!confirm(T('groups.confirmDelete')))return;
+saveG(getG().filter(x=>x.id!==id));renderGroups();toast('🗑️ '+T('groups.deleted'));
+}
+let lpEc=0;
+function addLpEntry(){
+lpEc++;const id=lpEc;
+const d=document.createElement('div');d.className='multi-entry';d.id='lpe-'+id;d.style.padding='11px';
+d.innerHTML=`<button class="remove-btn" onclick="document.getElementById('lpe-${id}').remove();updateLP()">✕</button>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
+<div><label style="font-size:.72rem">${T('lp.label')}</label><input type="text" class="ni" id="lpl-${id}" placeholder="${T('lp.labelPh')}" oninput="updateLP()" style="font-size:.8rem;padding:7px 9px;"></div>
+<div><label style="font-size:.72rem">${T('multi.entryPhone')}</label><input type="tel" class="ni" id="lpn-${id}" placeholder="1012345678" oninput="updateLP()" style="font-size:.8rem;padding:7px 9px;direction:ltr;text-align:right;"></div>
+</div>
+<div><label style="font-size:.72rem">${T('lp.country')}</label><select class="cs" id="lpc-${id}" onchange="updateLP()" style="width:100%;font-size:.78rem;">${CODES.map(c=>`<option value="${c.v}">${c.l}</option>`).join('')}</select></div>`;
+document.getElementById('lpEntries').appendChild(d);updateLP();
+}
+function updateLP(){
+const name=document.getElementById('lpName').value.trim()||T('lp.namePlaceholder');
+const bio=document.getElementById('lpBio').value.trim()||T('lp.bioPlaceholder');
+const emoji=document.getElementById('lpEmoji').value.trim()||'👤';
+const color=document.getElementById('lpColor').value||'#25D366';
+document.getElementById('lpAvatar').textContent=emoji;
+document.getElementById('lpAvatar').style.background=color;
+document.getElementById('lpNamePrev').textContent=name;
+document.getElementById('lpBioPrev').textContent=bio;
+const entries=document.querySelectorAll('[id^="lpe-"]');
+let html='';
+entries.forEach(e=>{
+const id=e.id.replace('lpe-','');
+const lbl=document.getElementById('lpl-'+id)?.value.trim()||T('lp.contact');
+const num=clean(document.getElementById('lpn-'+id)?.value.trim()||'');
+const code=document.getElementById('lpc-'+id)?.value||'20';
+if(!num)return;
+html+=`<a class="lp-link-item" href="${buildLink(code,num,'')}" target="_blank" style="background:${color}"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>${lbl}</a>`;
+});
+document.getElementById('lpLinksPrev').innerHTML=html||`<span style="font-size:.78rem;color:#999;">${T('lp.add')}</span>`;
+}
+function genLandingHTML(){
+const name=document.getElementById('lpName').value.trim()||(curLang==='en'?'Your Name':'اسمك');
+const bio=document.getElementById('lpBio').value.trim()||'';
+const emoji=document.getElementById('lpEmoji').value.trim()||'👤';
+const color=document.getElementById('lpColor').value||'#25D366';
+const entries=document.querySelectorAll('[id^="lpe-"]');
+const pageDir=curLang==='en'?'ltr':'rtl';
+const pageLang=curLang==='en'?'en':'ar';
+const contactLabel=T('lp.contact');
+let links='';
+entries.forEach(e=>{
+const id=e.id.replace('lpe-','');
+const lbl=document.getElementById('lpl-'+id)?.value.trim()||contactLabel;
+const num=clean(document.getElementById('lpn-'+id)?.value.trim()||'');
+const code=document.getElementById('lpc-'+id)?.value||'20';
+if(!num)return;
+const lnk=`https://wa.me/${code}${num.startsWith('0')?num.slice(1):num}`;
+links+=`<a href="${lnk}" target="_blank" style="display:flex;align-items:center;gap:8px;background:${color};color:#fff;border-radius:9px;padding:11px 16px;text-decoration:none;font-weight:700;font-size:.92rem;font-family:Cairo,sans-serif;">📱 ${lbl}</a>`;
+});
+const footerText=curLang==='en'?'WhatsApp Link · Free':'واتساب لينك · مجاني';
+return `<!DOCTYPE html><html lang="${pageLang}" dir="${pageDir}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${name}</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Cairo,sans-serif;background:#F5F7F0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{background:#fff;border-radius:18px;padding:28px 22px;max-width:360px;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 4px 24px rgba(0,0,0,.1)}.avatar{width:72px;height:72px;border-radius:50%;background:${color};display:grid;place-items:center;font-size:2rem}.name{font-size:1.2rem;font-weight:900}.bio{font-size:.85rem;color:#6B7280;text-align:center}.links{display:flex;flex-direction:column;gap:9px;width:100%}footer{font-size:.7rem;color:#aaa;margin-top:8px}</style></head><body><div class="card"><div class="avatar">${emoji}</div><div class="name">${name}</div>${bio?`<div class="bio">${bio}</div>`:''}<div class="links">${links}</div><footer>${footerText}</footer></div></body></html>`;
+}
+function copyLandingHTML(){navigator.clipboard.writeText(genLandingHTML()).then(()=>toast(curLang==='en'?'✓ HTML copied!':'✓ HTML اتنسخ!'));}
+function downloadLanding(){
+const name=(document.getElementById('lpName').value.trim()||'landing').replace(/\s+/g,'-');
+const a=document.createElement('a');a.href='data:text/html;charset=utf-8,'+encodeURIComponent(genLandingHTML());a.download=name+'.html';a.click();toast(curLang==='en'?'✓ Downloaded!':'✓ اتحمّلت!');
+}
+let histPage=1;const HIST_PER_PAGE=8;
+function renderHistory(){
+const q=(document.getElementById('histSearch')?.value||'').trim().toLowerCase();
+const sort=document.getElementById('histSort')?.value||'date_desc';
+let h=getH();
+if(q)h=h.filter(x=>x.name.toLowerCase().includes(q)||x.link.toLowerCase().includes(q));
+h.sort((a,b)=>{
+if(a.pinned&&!b.pinned)return -1;if(!a.pinned&&b.pinned)return 1;
+if(sort==='date_asc')return a.id-b.id;
+if(sort==='clicks_desc')return (b.clicks||0)-(a.clicks||0);
+if(sort==='name_asc')return a.name.localeCompare(b.name,'ar');
+return b.id-a.id;
+});
+const total=h.length;
+const pages=Math.max(1,Math.ceil(total/HIST_PER_PAGE));
+if(histPage>pages)histPage=pages;
+const slice=h.slice((histPage-1)*HIST_PER_PAGE,histPage*HIST_PER_PAGE);
+const el=document.getElementById('historyList');
+if(!h.length){
+const msg=q?T('hist.noResults'):T('hist.empty');
+el.innerHTML=`<div class="empty-state"><div class="empty-icon">🔗</div><p>${msg}</p></div>`;
+document.getElementById('histPagination').innerHTML='';return;
+}
+const platIcon={wa:'💬',tg:'✈️',ig:'📸',sms:'📱'};
+el.innerHTML=slice.map(x=>`<div class="hist-item${x.pinned?' pinned':''}"><div class="hist-top">${x.pinned?'<span class="pin-icon">📌</span>':''}<span class="hist-name">${platIcon[x.platform||'wa']||'💬'} ${x.name}</span><span class="hist-date">${x.date}</span><span style="font-size:.72rem;color:var(--green-d);font-weight:700">👆 ${x.clicks||0}</span></div><div class="hist-link">${x.link}</div><div class="hist-actions"><button class="hist-btn" onclick="hCopy('${x.link}',this)">${T('act.copy')}</button><button class="hist-btn" onclick="window.open('${x.link}','_blank')">${T('hist.open')}</button><button class="hist-btn" onclick="hShare('${x.link}')">${T('hist.share')}</button><button class="hist-btn hist-pin${x.pinned?' active':''}" onclick="hPin(${x.id},this)">${x.pinned?'📌':'📍'}</button><button class="hist-btn hist-del" onclick="hDel(${x.id})">${T('hist.delete')}</button></div></div>`).join('');
+const pg=document.getElementById('histPagination');
+if(pages<=1){pg.innerHTML='';return;}
+pg.innerHTML=Array.from({length:pages},(_,i)=>`<button class="page-btn${i+1===histPage?' active':''}" onclick="histPage=${i+1};renderHistory()">${i+1}</button>`).join('');
+}
+function hCopy(l,btn){navigator.clipboard.writeText(l).then(()=>{btn.textContent='✓';setTimeout(()=>btn.textContent=T('act.copy'),1500);});}
+function hShare(l){if(navigator.share)navigator.share({url:l});else{navigator.clipboard.writeText(l);toast(T('toast.copied'));}}
+function hDel(id){saveH(getH().filter(x=>x.id!==id));renderHistory();toast('🗑️ '+T('hist.deleted'));}
+function hPin(id){const h=getH();const it=h.find(x=>x.id===id);if(!it)return;it.pinned=!it.pinned;saveH(h);renderHistory();toast(it.pinned?T('toast.linkPinned'):T('toast.linkUnpinned'));}
+function clearHistory(){if(confirm(T('hist.confirmClear'))){saveH([]);renderHistory();toast('🗑️ '+T('hist.cleared'));}}
+function exportHistCSV(){
+const h=getH();if(!h.length){toast(T('toast.csvEmpty'));return;}
+const hdr=curLang==='en'?'Name,Link,Date,Clicks':'الاسم,الرابط,التاريخ,النقرات';
+dlCSV(hdr+'\n'+h.map(x=>`"${x.name}","${x.link}","${x.date}",${x.clicks||0}`).join('\n'),'wa-history.csv');
+toast(T('toast.csvDownloaded'));
+}
+function dlCSV(csv,fname){
+const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;a.click();
+}
+function renderStats(){
+const h=getH();
+const today=new Date().toLocaleDateString('ar-EG');
+document.getElementById('statTotal').textContent=h.length;
+document.getElementById('statClicks').textContent=h.reduce((s,x)=>s+(x.clicks||0),0);
+document.getElementById('statToday').textContent=h.filter(x=>x.date===today).length;
+document.getElementById('statCountries').textContent=new Set(h.map(x=>x.code)).size;
+const top=[...h].sort((a,b)=>(b.clicks||0)-(a.clicks||0)).slice(0,5);
+const mx=top[0]?(top[0].clicks||0):1;
+document.getElementById('topLinks').innerHTML=top.length
+?top.map(x=>`<div class="top-link-row"><span class="top-link-name">${x.name}</span><div class="top-link-bar-wrap"><div class="top-link-bar" style="width:${Math.max(4,((x.clicks||0)/mx)*100)}%"></div></div><span class="top-link-count">${x.clicks||0}</span></div>`).join('')
+:`<div class="empty-state"><div class="empty-icon">📊</div><p>${T('stats.noStats')}</p></div>`;
+const daysAr=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const daysEn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const days=curLang==='en'?daysEn:daysAr;
+const now=new Date();const weekData=Array(7).fill(0);
+h.forEach(x=>{if(!x.date)return;const pts=x.date.split('/');if(pts.length<3)return;try{const d=new Date(pts[2],pts[1]-1,pts[0]);const diff=Math.round((now-d)/(86400000));if(diff>=0&&diff<7)weekData[6-diff]++;}catch(e){}});
+const weekMax=Math.max(...weekData,1);
+const wLabels=Array.from({length:7},(_,i)=>{const d=new Date(now);d.setDate(now.getDate()-(6-i));return days[d.getDay()];});
+document.getElementById('weekChart').innerHTML=weekData.map((v,i)=>`<div class="chart-bar-row"><span class="chart-bar-label">${wLabels[i]}</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width:${Math.max(2,(v/weekMax)*100)}%"></div></div><span class="chart-bar-val">${v}</span></div>`).join('');
+const cmap={};
+const cnamesAr={'20':'🇪🇬 مصر','966':'🇸🇦 السعودية','971':'🇦🇪 الإمارات','965':'🇰🇼 الكويت','974':'🇶🇦 قطر','973':'🇧🇭 البحرين','968':'🇴🇲 عُمان','962':'🇯🇴 الأردن','961':'🇱🇧 لبنان','213':'🇩🇿 الجزائر','212':'🇲🇦 المغرب','216':'🇹🇳 تونس','218':'🇱🇾 ليبيا','249':'🇸🇩 السودان','1':'🇺🇸 أمريكا','44':'🇬🇧 بريطانيا'};
+const cnamesEn={'20':'🇪🇬 Egypt','966':'🇸🇦 Saudi','971':'🇦🇪 UAE','965':'🇰🇼 Kuwait','974':'🇶🇦 Qatar','973':'🇧🇭 Bahrain','968':'🇴🇲 Oman','962':'🇯🇴 Jordan','961':'🇱🇧 Lebanon','213':'🇩🇿 Algeria','212':'🇲🇦 Morocco','216':'🇹🇳 Tunisia','218':'🇱🇾 Libya','249':'🇸🇩 Sudan','1':'🇺🇸 USA','44':'🇬🇧 UK'};
+const cnames=curLang==='en'?cnamesEn:cnamesAr;
+h.forEach(x=>{const c=cnames[x.code]||'+'+x.code;cmap[c]=(cmap[c]||0)+1;});
+const cArr=Object.entries(cmap).sort((a,b)=>b[1]-a[1]).slice(0,6);const cMax=cArr[0]?cArr[0][1]:1;
+document.getElementById('countryChart').innerHTML=cArr.length
+?cArr.map(([c,v])=>`<div class="chart-bar-row"><span class="chart-bar-label">${c}</span><div class="chart-bar-outer"><div class="chart-bar-inner" style="width:${Math.max(2,(v/cMax)*100)}%"></div></div><span class="chart-bar-val">${v}</span></div>`).join('')
+:`<div class="empty-state"><p>${T('stats.noData')}</p></div>`;
+}
+const getSL=()=>{try{return JSON.parse(localStorage.getItem('wa_sl')||'{}')}catch{return{}}};
+const saveSL=d=>localStorage.setItem('wa_sl',JSON.stringify(d));
+function genHash(len=6){
+const chars='abcdefghijkmnpqrstuvwxyz23456789';
+let h='';for(let i=0;i<len;i++)h+=chars[Math.floor(Math.random()*chars.length)];
+return h;
+}
+function createShortLink(){
+const url=document.getElementById('shortInput').value.trim();
+if(!url){toast('⚠️ '+T('short.emptyInput'));return;}
+let alias=document.getElementById('shortAlias').value.trim()
+.toLowerCase().replace(/[^a-z0-9\-]/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+if(!alias)alias=genHash();
+const sl=getSL();
+if(sl[alias]){toast(T('short.aliasExists'));return;}
+sl[alias]={url,created:new Date().toLocaleDateString('ar-EG'),clicks:0};
+saveSL(sl);
+const short=`${location.href.split('?')[0].replace(/#.*/,'')}?s=${alias}`;
+document.getElementById('shortResultText').textContent=short;
+const w=document.getElementById('shortResultWrap');w.style.display='flex';w.style.flexDirection='column';
+document.getElementById('shortAlias').value='';
+renderShortLinks();
+toast(T('short.created'));
+}
+function copyShortLink(){
+const t=document.getElementById('shortResultText').textContent;
+if(!t||t==='—')return;
+navigator.clipboard.writeText(t).then(()=>toast(T('toast.copied')));
+}
+function testShortLink(){
+const t=document.getElementById('shortResultText').textContent;
+if(!t||t==='—')return;
+const alias=new URL(t).searchParams.get('s');
+if(!alias)return;
+const sl=getSL();
+if(sl[alias]){toast('✓ '+T('short.opening'));window.open(sl[alias].url,'_blank');}
+else toast('⚠️ '+T('short.notFound'));
+}
+function renderShortLinks(){
+const sl=getSL();
+const keys=Object.keys(sl);
+const el=document.getElementById('shortList');
+if(!keys.length){el.innerHTML=`<div class="empty-state"><div class="empty-icon">✂️</div><p>${T('short.empty')}</p></div>`;return;}
+const base=location.href.split('?')[0].replace(/#.*/,'');
+const clickWord=T('short.clicks');
+el.innerHTML=keys.reverse().map(k=>{
+const s=sl[k];
+const short=`${base}?s=${k}`;
+return `<div class="hist-item"><div class="hist-top"><span class="hist-name">✂️ ${k}</span><span class="hist-date">${s.created||''}</span><span style="font-size:.72rem;color:var(--purple);font-weight:700">🔓 ${s.clicks||0} ${clickWord}</span></div><div class="short-link-box" style="margin:2px 0"><span class="short-link-text">${short}</span></div><div style="font-size:.72rem;color:var(--muted);direction:ltr;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.url}</div><div class="hist-actions"><button class="hist-btn" onclick="slCopy('${short}',this)">${T('act.copy')}</button><button class="hist-btn" onclick="slOpen('${k}')">${T('hist.open')}</button><button class="hist-btn hist-del" onclick="slDel('${k}')">${T('hist.delete')}</button></div></div>`;
+}).join('');
+}
+function slCopy(url,btn){navigator.clipboard.writeText(url).then(()=>{btn.textContent='✓';setTimeout(()=>btn.textContent=T('act.copy'),1500);});}
+function slOpen(k){const sl=getSL();if(sl[k]){sl[k].clicks=(sl[k].clicks||0)+1;saveSL(sl);renderShortLinks();window.open(sl[k].url,'_blank');}}
+function slDel(k){const sl=getSL();delete sl[k];saveSL(sl);renderShortLinks();document.getElementById('shortResultWrap').style.display='none';toast('🗑️ '+T('hist.deleted'));}
+function clearShortLinks(){if(confirm(T('short.confirmClear'))){saveSL({});renderShortLinks();toast('🗑️');}}
+(function(){
+const p=new URLSearchParams(location.search);
+const s=p.get('s');
+if(!s)return;
+const sl=getSL();
+if(sl[s]){sl[s].clicks=(sl[s].clicks||0)+1;saveSL(sl);location.replace(sl[s].url);}
+})();
+buildQrThemeButtons();
+addEntry();addEntry();
+addLpEntry();
+applyLang(curLang);
+renderHistory();
+renderShortLinks();
+const savedKey=localStorage.getItem('wa_aik');
+if(savedKey)document.getElementById('aiApiKey').value=savedKey;
+document.getElementById('phoneInput').addEventListener('keydown',e=>{if(e.key==='Enter')generate();});
+document.getElementById('phoneInput').addEventListener('input',()=>{
+const v=document.getElementById('phoneInput').value;
+if(validatePhone(clean(v))){document.getElementById('phoneInput').classList.remove('err');document.getElementById('phoneErr').style.display='none';}
+});</script></body></html>
